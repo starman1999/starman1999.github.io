@@ -1,0 +1,3425 @@
+{
+  "type": "Topology",
+  "objects": {
+    "collection": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[3]]],
+          "properties": {
+            "osm_way_id": 226879808,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "#5fff9b",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "LineString",
+          "arcs": [0],
+          "properties": {
+            "name": "",
+            "icon": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "LineString",
+          "arcs": [1],
+          "properties": {
+            "name": "le serpent",
+            "icon": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "LineString",
+          "arcs": [2],
+          "properties": {
+            "name": "Parking employés",
+            "icon": "icons/parking.png",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[4]]],
+          "properties": {
+            "osm_way_id": null,
+            "icon": "icons/cri.png",
+            "name": "Centre de Calcul, CRI",
+            "type": "multipolygon",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[5]], [[6]], [[7]]],
+          "properties": {
+            "osm_way_id": null,
+            "icon": "icons/sallestp.png",
+            "name": "Bloc des salles de TP",
+            "type": "multipolygon",
+            "event": 1,
+            "conference": {
+              "title": "Conférence-débat avec Margrethe Vestager, Commissaire européenne à la Concurrence et Emmanuel Macron, Ministre de l'Economie, de l'Industrie et du Numérique",
+              "description": "Le 15 juin 2018, à l'invitation de la Représentation de la Commission européenne en France, deux intervenants de renom sont venus débattre avec près de 900 personnes réunies dans l'amphithéâtre Edgar Faure, autour de \"La concurrence qui stimule, la coopération qui renforce et la solidarité qui unit\""
+            },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[8]], [[9]], [[10]]],
+          "properties": {
+            "osm_way_id": null,
+            "icon": "icons/cours.png",
+            "name": "Les nouveaux blocs",
+            "type": "multipolygon",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[11, 12, 13], [14]]],
+          "properties": {
+            "osm_way_id": null,
+            "icon": "icons/village.png",
+            "name": "Village Universitaire",
+            "type": "multipolygon",
+            "event": 1,
+            "conference": {
+              "title": "Conférence-débat avec Margrethe Vestager, Commissaire européenne à la Concurrence et Emmanuel Macron, Ministre de l'Economie, de l'Industrie et du Numérique",
+              "description": "Le 15 juin 2018, à l'invitation de la Représentation de la Commission européenne en France, deux intervenants de renom sont venus débattre avec près de 900 personnes réunies dans l'amphithéâtre Edgar Faure, autour de \"La concurrence qui stimule, la coopération qui renforce et la solidarité qui unit\""
+            },
+            "soutenance": {
+              "title": "Etude comparative des performances de récepteur dans les centrales solaire à tour.",
+              "description": "Le samedi 21 Octobre à 09h30 à la salle 132, MR YAMANI Noureddine soutiendra publiquement sa thèse de doctorat devant le jury :</br></br>président : BOUALI ELAHMOUNE</br>Directeur : KHELLAF ABDELLAH</br>Co-directeur : MOHAMMEDI KAMAL</br>Examinateur : BOUDRIES RAFIKA.</br>Examinateur : BAKNOUCH HAMID."
+            },
+            "eventUniv": {
+              "title": "Troisième édition du Gala de l'Université, vendredi 31 mars 2018",
+              "description": "Réunissez-vous avec vos amis, vos professeurs et le personnel administratif, pour un Gala qui s'annonce cette année sur le ton de l'élégance et de la distinction.</br></br>Ambiance Jazzy, talons hauts et smokings sont de rigueur à la salle des sports des Tertiales, spécialement aménagée et luxueusement décorée pour l'événement.</br></br> Des navettes seront mises en place.</br>Plus d'informations : presidence.fev@gmail.com</br></br>Nous vous attendons nombreux pour cette soirée conviviale et festive"
+            },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[15]]],
+          "properties": {
+            "osm_way_id": 42789468,
+            "icon": "icons/parking.png",
+            "name": "Parking Enseignant 2",
+            "lat": 3.18674,
+            "long": 36.71562,
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[16]]],
+          "properties": {
+            "osm_way_id": 42789493,
+            "icon": "icons/parking.png",
+            "name": "Parking des étudiants",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[17]]],
+          "properties": {
+            "osm_way_id": 42789498,
+            "icon": "icons/parking.png",
+            "name": "Parking Enseignant 1",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[18]]],
+          "properties": {
+            "osm_way_id": 42789724,
+            "icon": "icons/cours.png",
+            "name": "Salles 300-400",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[19]]],
+          "properties": {
+            "osm_way_id": 42789738,
+            "icon": "icons/parking.png",
+            "name": "Parking El-Alia",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[20]]],
+          "properties": {
+            "osm_way_id": 42789740,
+            "icon": "icons/stade.png",
+            "name": "Stade",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[21, 22, 23, 24]]],
+          "properties": {
+            "osm_way_id": 42789741,
+            "icon": "icons/cours.png",
+            "name": "Salles 100-200",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[25]]],
+          "properties": {
+            "osm_way_id": 42789742,
+            "icon": "icons/administration.png",
+            "name": "Rectorat",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[26, 27, 28, 29, 30, 31, 32, 33]]],
+          "properties": {
+            "osm_way_id": 42789750,
+            "icon": "icons/geologie.png",
+            "name": "Faculté des Sciences de la Terre de Géographie et de l’Aménagement du Territoire",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[34, 35, 36, 37, 38, 39, 40, 41]]],
+          "properties": {
+            "osm_way_id": 42789751,
+            "icon": "icons/mecanique.png",
+            "name": "Faculté de Génie Mécanique et Génie des Procédés",
+            "event": 1,
+            "conference": { "title": "", "description": "" },
+            "soutenance": {
+              "title": "Développement d'un système d'extraction des paramètres biomécanique par la méthode  opoélectronique pour l'analyse quantifiée de la marche humaine.",
+              "description": "Le samedi 31 Janvier à 9h30 à la salle des conférences, MR HESSAS Samir soutiendra publiquement sa thèse de doctorat,Devant le jury:</br>président : KESSAL MOHAMED. </br>Directeur : BELAID IDIR.</br>Co-directeur : RACHEDI MOHAMED.</br>Examinateur : BELOUCHRANI MED EL AMINE.</br>Examinateur : SADOUNI TARIK.</br>Examinateur : LOUNICI MOHAND SAID.</br>"
+            },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[42, 43]]],
+          "properties": {
+            "osm_way_id": 42789752,
+            "icon": "icons/physique.png",
+            "name": "Faculté de Physique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[44]]],
+          "properties": {
+            "osm_way_id": 42789753,
+            "icon": "icons/chimie.png",
+            "name": "Faculté de Chimie",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[45]]],
+          "properties": {
+            "osm_way_id": 42789755,
+            "icon": "icons/biologie.png",
+            "name": "Faculté des Sciences Biologiques",
+            "event": 1,
+            "conference": { "title": "", "description": "" },
+            "soutenance": {
+              "title": "Etude des pouvoir antioxydant den deux variétés de dattes du nord et du sud algérien. Possibilité d'incorporation dans une margarine allégée.",
+              "description": "Le samedi 28 Octobre à 10h00 au Bloc des salles de TP, MR DJAKOUB Amrane soutiendra publiquement sa thèse de doctorat.</br>Devant le jury:</br></br>président : NOUR HASDI.</br>Directeur : BENAMARA SALEM.</br>Examinateur : MADANI KHOUDIR.</br>Examinateur : TOUMI MOHAMED.</br>Examinateur : KOCEIR ELHADJ AHMED."
+            },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": ["1ere etage", "2eme etage"]
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[46]]],
+          "properties": {
+            "osm_way_id": 42789757,
+            "icon": "icons/bibliotheque.png",
+            "name": "Bibliothèque",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[47, 48, 49, 50]]],
+          "properties": {
+            "osm_way_id": 42789760,
+            "icon": "icons/gc.png",
+            "name": "Faculté de Génie Civil",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[51, 52, 53, 54, 55, 56]]],
+          "properties": {
+            "osm_way_id": 42789761,
+            "icon": "icons/electronique.png",
+            "name": "Faculté d'Electrotechnique et d’Informatique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[57, 58]]],
+          "properties": {
+            "osm_way_id": 226876492,
+            "icon": "",
+            "name": "Amphi D",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[59]]],
+          "properties": {
+            "osm_way_id": 226876494,
+            "icon": "icons/bibliotheque.png",
+            "name": "Bibliothèque FSTGAT",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-56, 60]]],
+          "properties": {
+            "osm_way_id": 226876495,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[61, 62]]],
+          "properties": {
+            "osm_way_id": 226876496,
+            "icon": "",
+            "name": "Amphi L",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[63, 64]]],
+          "properties": {
+            "osm_way_id": 226876497,
+            "icon": "",
+            "name": "Amphi G",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[65]]],
+          "properties": {
+            "osm_way_id": 226876500,
+            "icon": "",
+            "name": "Lac de l'université",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "#2bbbdf",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[66, 67]]],
+          "properties": {
+            "osm_way_id": 226876501,
+            "icon": "",
+            "name": "Amphi R",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[68, 69]]],
+          "properties": {
+            "osm_way_id": 226876503,
+            "icon": "",
+            "name": "Amphi S",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[70, 71]]],
+          "properties": {
+            "osm_way_id": 226876504,
+            "icon": "",
+            "name": "Amphi J",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[72, 73]]],
+          "properties": {
+            "osm_way_id": 226876505,
+            "icon": "",
+            "name": "Amphi H",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-48, 74]]],
+          "properties": {
+            "osm_way_id": 226876506,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[75]]],
+          "properties": {
+            "osm_way_id": 226876507,
+            "icon": "icons/administration.png",
+            "name": "Annexe Rectorat",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[36, 76]]],
+          "properties": {
+            "osm_way_id": 226876508,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[77, 78]]],
+          "properties": {
+            "osm_way_id": 226876509,
+            "icon": "",
+            "name": "Amphi P",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[79, 80]]],
+          "properties": {
+            "osm_way_id": 226876510,
+            "icon": "",
+            "name": "Amphi N",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[81, 82]]],
+          "properties": {
+            "osm_way_id": 226876511,
+            "icon": "",
+            "name": "Amphi E",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[83, 84]]],
+          "properties": {
+            "osm_way_id": 226876512,
+            "icon": "",
+            "name": "Amphi A",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-35, 85]]],
+          "properties": {
+            "osm_way_id": 226876513,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[49, 86]]],
+          "properties": {
+            "osm_way_id": 226876514,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[38, 87, -29, 88]]],
+          "properties": {
+            "osm_way_id": 226876515,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-52, 89]]],
+          "properties": {
+            "osm_way_id": 226876516,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[90, 91, -13, -12, 92]]],
+          "properties": {
+            "osm_way_id": 226876518,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[93, 94]]],
+          "properties": {
+            "osm_way_id": 226876519,
+            "icon": "",
+            "name": "Amphi F",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[95, 96]]],
+          "properties": {
+            "osm_way_id": 226876520,
+            "icon": "",
+            "name": "Amphi I",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[97, -54, 98, -31]]],
+          "properties": {
+            "osm_way_id": 226876521,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[40, 99]]],
+          "properties": {
+            "osm_way_id": 226876522,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[100, 101]]],
+          "properties": {
+            "osm_way_id": 226876523,
+            "icon": "",
+            "name": "Amphi W",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[90, 102, -43, 103]]],
+          "properties": {
+            "osm_way_id": 226876524,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [
+            [
+              [
+                -74, 104, -97, 105, -72, 106, -85, 107, 108, 109, 110, 111, -59,
+                112, -83, 113, 114, 115, -95, 116, -65, 117, 118, 119, -63, 120
+              ]
+            ]
+          ],
+          "properties": {
+            "osm_way_id": 226876525,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[121, 122]]],
+          "properties": {
+            "osm_way_id": 226876526,
+            "icon": "",
+            "name": "Amphi Z",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-33, 123]]],
+          "properties": {
+            "osm_way_id": 226876527,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[124, 125]]],
+          "properties": {
+            "osm_way_id": 226876528,
+            "icon": "",
+            "name": "Amphi T",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[126]]],
+          "properties": {
+            "osm_way_id": 226876529,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[127]]],
+          "properties": {
+            "osm_way_id": 226876530,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[128, 129]]],
+          "properties": {
+            "osm_way_id": 226876531,
+            "icon": "",
+            "name": "Amphi O",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[130, -119]]],
+          "properties": {
+            "osm_way_id": 226876532,
+            "icon": "",
+            "name": "Amphi K",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[131, 132]]],
+          "properties": {
+            "osm_way_id": 226876533,
+            "icon": "",
+            "name": "Amphi M",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[133, -109]]],
+          "properties": {
+            "osm_way_id": 226876534,
+            "icon": "",
+            "name": "Amphi B",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-27, 134]]],
+          "properties": {
+            "osm_way_id": 226876535,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[135, 136]]],
+          "properties": {
+            "osm_way_id": 226876536,
+            "icon": "",
+            "name": "Amphi U",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[137]]],
+          "properties": {
+            "osm_way_id": 226876537,
+            "icon": "icons/sports.png",
+            "name": "Salle omnisport",
+            "event": 1,
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": {
+              "title": "Volleyball! Venez encourager les filles!!",
+              "description": "Il n’y a pas que l’équipe de Volleyball masculin qui s’active pendant le temps des Fêtes…</br></br>Pendant que les gars jouent en Tunisie, l’équipe de Volleyball féminin rencontre pour la première fois son adversaire Toronto-volley pour une série de matchs amicale!</br>Elles rencontreront les équipes suivantes :</br>Vert & Or vs Toronto : le 28 déc. à 19 h au Goldring de l’Université de Toronto</br>Vert & Or vs McMaster : le 29 déc. à 19 h au Goldring de l’Université de Toronto</br>Vert & Or vs Ryerson : le 30 déc. à 12 h à Ryerson</br></br>Bonne chance les filles!"
+            },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [
+            [
+              [
+                67, 138, 125, 139, 140, 141, 142, 143, 101, 144, 136, 145, 69,
+                146, 122, 147, 78, 148, 80, 149, 131, 150, 129, 151, 152, 153
+              ]
+            ]
+          ],
+          "properties": {
+            "osm_way_id": 226876538,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[154, -111]]],
+          "properties": {
+            "osm_way_id": 226876539,
+            "icon": "",
+            "name": "Amphi C",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[142, 155]]],
+          "properties": {
+            "osm_way_id": 226876540,
+            "icon": "",
+            "name": "Amphi X",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[156, 140]]],
+          "properties": {
+            "osm_way_id": 226876541,
+            "icon": "",
+            "name": "Amphi V",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[157]]],
+          "properties": {
+            "osm_way_id": 226879779,
+            "icon": "icons/cours.png",
+            "name": "Bloc pédagogique B",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[23, 158]]],
+          "properties": {
+            "osm_way_id": 226879780,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[159]]],
+          "properties": {
+            "osm_way_id": 226879781,
+            "icon": "icons/sallestp.png",
+            "name": "Hall technologique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[160, -115, 161, 162, 163, -22]]],
+          "properties": {
+            "osm_way_id": 226879782,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[-163, 164]]],
+          "properties": {
+            "osm_way_id": 226879785,
+            "icon": "icons/sanitaire.png",
+            "name": "Sanitaire",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[165]]],
+          "properties": {
+            "osm_way_id": 226879786,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[166]]],
+          "properties": {
+            "osm_way_id": 226879788,
+            "icon": "icons/math.png",
+            "name": "Faculté de mathématiques",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[167]]],
+          "properties": {
+            "osm_way_id": 226879789,
+            "icon": "icons/biologie.png",
+            "name": "Magasin de biologie",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[168]]],
+          "properties": {
+            "osm_way_id": 226879790,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[169]]],
+          "properties": {
+            "osm_way_id": 226879792,
+            "icon": "icons/internet.png",
+            "name": "Espace Internet",
+            "event": 1,
+            "soutenance": {
+              "title": "Simulation par fatigue du comportement d'une fissur d'une pale sous changement aérodynamique par méthode XFM.",
+              "description": "Le Jeudi 26 Octobre à 09h30 à la salle internet (CyberEspace) MR GHERBI Mohamed soutiendra publiquement sa thèse de doctorat, Devant le jury :</br></br>président : SACI RACHID </br>Directeur : NOUR ABDELKADER  </br> Examinateur : BENGUEDAIB MOHAMED </br>Examinateur : ZEHLOUL HAMOU </br>Examinateur : BENKOUSSAS BOUZID"
+            },
+            "conference": {
+              "title": "Climat et réchauffement climatique, l'homme responsable ? ",
+              "description": "Date : mercredi 4 janvier 2017 15:00</br>Téléphone : 04 93 38 37 49</br></br>Le réchauffement climatique, l'homme responsable ?</br>Il y a un emballement médiatique sur le réchauffement climatique qui fait la une de toutes les informations. Qu’en est-il réellement ?</br>Nous examinerons tout d’ abord les éléments fondamentaux qui gèrent le climat.</br></br>Intervenant : Maurice MOINE Ancien ingénieur EDF spécialisé dans les barrages hydrauliques, ancien président du club de randonnée de Cagnes sur Mer, auditeur libre à la faculté de géologie à Nice. "
+            },
+            "eventUniv": {
+              "title": "AGC Algeria Game Challenge",
+              "description": "Dans le cadre des activités de Micro-Club | Club .Net, le club organise une présentation de concours AGC Algeria Game Challenge (Concours de développement de jeux vedio ) dans sa quatrième édition.</br>La présentation auras lieux dans la salle CyberEspace, à partir de 13h soyez nombreux.</br></br>Important**  : POUR les externes à l'USTHB</br>Veuillez remplir le formulaire et réserver un ticket sur le site Eventbrite via < <a href=\"https://docs.google.com/forms/d/10ps-yhjb2HtMBr94lYwT1SDTzfHv7O_0Drrbd45iLgU/viewform\">ce lien </a> >"
+            },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[170]]],
+          "properties": {
+            "osm_way_id": 226879793,
+            "icon": "icons/cours.png",
+            "name": "Bloc pédagogique E",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[171]]],
+          "properties": {
+            "osm_way_id": 226879794,
+            "icon": "icons/administration.png",
+            "name": "Administration de la faculté de mathématique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[172]]],
+          "properties": {
+            "osm_way_id": 226879797,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[173]]],
+          "properties": {
+            "osm_way_id": 226879798,
+            "icon": "icons/bibliotheque.png",
+            "name": "Bibliothèque de la faculté de mathématique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[174]]],
+          "properties": {
+            "osm_way_id": 226879800,
+            "icon": "icons/sallestp.png",
+            "name": "Maison des sciences",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[175]]],
+          "properties": {
+            "osm_way_id": 226879801,
+            "icon": "icons/conferance.png",
+            "name": "Salle de Conférence",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[176]]],
+          "properties": {
+            "osm_way_id": 226879802,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[177]]],
+          "properties": {
+            "osm_way_id": 226879804,
+            "icon": "",
+            "name": "Chalet Genie Civil",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[178]]],
+          "properties": {
+            "osm_way_id": 226879805,
+            "icon": "icons/animals.png",
+            "name": "Animalerie",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[179]]],
+          "properties": {
+            "osm_way_id": 226879806,
+            "icon": "icons/stade.png",
+            "name": "Stade",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[180]]],
+          "properties": {
+            "osm_way_id": 260971978,
+            "icon": "",
+            "name": "Kiosque",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[181]]],
+          "properties": {
+            "osm_way_id": 260971979,
+            "icon": "",
+            "name": "Kiosque",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[182]]],
+          "properties": {
+            "osm_way_id": 260971981,
+            "icon": "",
+            "name": "Kiosque",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[183]]],
+          "properties": {
+            "osm_way_id": 260971982,
+            "icon": "icons/food.png",
+            "name": "Buvette",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[184]]],
+          "properties": {
+            "osm_way_id": 260971985,
+            "icon": "icons/food.png",
+            "name": "Buvette",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[185]]],
+          "properties": {
+            "osm_way_id": 260971987,
+            "icon": "icons/food.png",
+            "name": "Buvette",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[186]]],
+          "properties": {
+            "osm_way_id": 260971989,
+            "icon": "icons/informatique.png",
+            "name": "Département Informatique",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": ["premiere etage", "deuxieme etage", "troisieme etage"]
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[187]]],
+          "properties": {
+            "osm_way_id": 260971992,
+            "icon": "",
+            "name": "Kiosque",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[188]]],
+          "properties": {
+            "osm_way_id": 260971995,
+            "icon": "icons/food.png",
+            "name": "Buvette",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[189]]],
+          "properties": {
+            "osm_way_id": 260971996,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[152, 190]]],
+          "properties": {
+            "osm_way_id": 260971999,
+            "icon": "icons/sanitaire.png",
+            "name": "Sanitaires",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[191]]],
+          "properties": {
+            "osm_way_id": 260991826,
+            "icon": "",
+            "name": "",
+            "event": "",
+            "conference": { "title": "", "description": "" },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": { "title": "", "description": "" },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        },
+        {
+          "type": "MultiPolygon",
+          "arcs": [[[192]]],
+          "properties": {
+            "osm_way_id": 260991827,
+            "icon": "icons/conferance.png",
+            "name": "Auditorium",
+            "event": 1,
+            "conference": {
+              "title": "Les femmes dans les mathématiques depuis l'Antiquité",
+              "description": "Date : mercredi 5 octobre 2016 15:00</br>Téléphone : 04 93 38 37 49</br></br>Les femmes dans les mathématiques depuis l'Antiquité</br></br>Qui sont ces femmes exceptionnelles, leur vie, leurs oeuvres?</br>Ont-elles des profils comparables? Ont-elles été reconnues en leur temps?</br>Quelles prouesses n'ont-elles pas eu à accomplir?</br></br>Intervenant : Gérard FOURCADE Professeur Agrégé de Mathématiques (H) Diplômé d'Astronomie- Ex chargé de cours à l'Université de Nice Sophia Antipolis. Auteur de divers ouvrages."
+            },
+            "soutenance": { "title": "", "description": "" },
+            "eventUniv": {
+              "title": "Les cafés philo, pour une autre approche de la philosophie",
+              "description": "Inspiré des salons littéraires du XVIIIe siècle, le café philo est un lieu de débat et d’échanges pour faire vivre les idées. Ouvert à tous, il encourage les participants à penser \"par eux-mêmes\" lors de discussions menées en compagnie d’un philosophe.</br>Premier de la capitale, le café-philo du Café des Phares, qui a été créé en 1992, se tient chaque dimanche de 10 h 30 à 12 h 15. Parmi les autres lieux qui font débat, citons également les cafés-philo qui se tiennent au bar-restaurant Chez Agnès ou au café Le Bastille. À noter que l’entrée est libre mais la consommation obligatoire."
+            },
+            "fill": "",
+            "opacity": 1,
+            "etage": []
+          }
+        }
+      ]
+    }
+  },
+  "arcs": [
+    [
+      [3.1863427, 36.71611],
+      [3.18617, 36.71594],
+      [3.1860087, 36.715775],
+      [3.1858015, 36.715576],
+      [3.1857963, 36.715572],
+      [3.185696, 36.715477],
+      [3.1855402, 36.71533],
+      [3.1854603, 36.715252],
+      [3.1851687, 36.714973]
+    ],
+    [
+      [3.1776743, 36.712257],
+      [3.1777742, 36.712303],
+      [3.1778731, 36.71236],
+      [3.178093, 36.71248],
+      [3.1786964, 36.712803],
+      [3.1792612, 36.713104],
+      [3.1797895, 36.71339],
+      [3.1805458, 36.71379],
+      [3.1808207, 36.71395],
+      [3.18116, 36.714123],
+      [3.1814942, 36.7143],
+      [3.1816058, 36.71435],
+      [3.181813, 36.71448],
+      [3.1820633, 36.714607]
+    ],
+    [
+      [3.1779673, 36.71489],
+      [3.178139, 36.714672],
+      [3.178005, 36.7146],
+      [3.1778226, 36.71481],
+      [3.1775756, 36.714672],
+      [3.1770177, 36.71538],
+      [3.1777635, 36.715805],
+      [3.1778064, 36.71564],
+      [3.1775112, 36.715466],
+      [3.1776185, 36.715324],
+      [3.177919, 36.715485],
+      [3.1779673, 36.71489]
+    ],
+    [
+      [3.1863427, 36.71611],
+      [3.1890478, 36.71453],
+      [3.189075, 36.714516],
+      [3.1891353, 36.71443],
+      [3.189131, 36.714314],
+      [3.1888287, 36.713985],
+      [3.1884074, 36.713585],
+      [3.1880677, 36.71323],
+      [3.1877158, 36.71286],
+      [3.1882622, 36.71249],
+      [3.1889622, 36.711597],
+      [3.1849754, 36.709423],
+      [3.1790674, 36.70623],
+      [3.1779737, 36.705658],
+      [3.1778333, 36.705566],
+      [3.177666, 36.70552],
+      [3.1774595, 36.705517],
+      [3.1772943, 36.705585],
+      [3.1758516, 36.70641],
+      [3.173417, 36.70783],
+      [3.171785, 36.70977],
+      [3.1726046, 36.71022],
+      [3.171991, 36.71096],
+      [3.172651, 36.711296],
+      [3.173813, 36.7119],
+      [3.1733463, 36.71246],
+      [3.1746936, 36.713177],
+      [3.1744277, 36.71346],
+      [3.1751091, 36.71397],
+      [3.1764195, 36.71498],
+      [3.1767092, 36.714844],
+      [3.1771417, 36.715107],
+      [3.1775143, 36.71531],
+      [3.1778896, 36.715523],
+      [3.1778452, 36.716137],
+      [3.1810317, 36.718792],
+      [3.1812115, 36.718945],
+      [3.1812923, 36.71897],
+      [3.1813483, 36.718987],
+      [3.1814127, 36.718987],
+      [3.1814945, 36.718964],
+      [3.1821592, 36.71858],
+      [3.1863427, 36.71611]
+    ],
+    [
+      [3.1828918, 36.715965],
+      [3.1828284, 36.716026],
+      [3.182795, 36.716103],
+      [3.1827953, 36.716183],
+      [3.182829, 36.71626],
+      [3.182892, 36.71632],
+      [3.182978, 36.716362],
+      [3.1830702, 36.716377],
+      [3.1831641, 36.71637],
+      [3.1832502, 36.71634],
+      [3.1833193, 36.716286],
+      [3.1833646, 36.71622],
+      [3.1833816, 36.716145],
+      [3.1833682, 36.716072],
+      [3.183326, 36.716003],
+      [3.1832595, 36.71595],
+      [3.183175, 36.715916],
+      [3.1830757, 36.715904],
+      [3.1829774, 36.715923],
+      [3.1828918, 36.715965]
+    ],
+    [
+      [3.1820745, 36.70931],
+      [3.181672, 36.709816],
+      [3.18142, 36.709686],
+      [3.181594, 36.709476],
+      [3.1818411, 36.709183],
+      [3.181857, 36.709194],
+      [3.1819484, 36.70924],
+      [3.1820745, 36.70931]
+    ],
+    [
+      [3.1813343, 36.708904],
+      [3.1813498, 36.708916],
+      [3.1810966, 36.709225],
+      [3.1809077, 36.709454],
+      [3.180669, 36.709324],
+      [3.181109, 36.70879],
+      [3.181203, 36.70884],
+      [3.1813343, 36.708904]
+    ],
+    [
+      [3.1812377, 36.70879],
+      [3.1811733, 36.708755],
+      [3.1812055, 36.70872],
+      [3.181243, 36.708702],
+      [3.1812887, 36.708687],
+      [3.1813421, 36.708687],
+      [3.1813931, 36.7087],
+      [3.1814308, 36.70872],
+      [3.1814523, 36.708702],
+      [3.1814013, 36.70868],
+      [3.1813502, 36.708668],
+      [3.1813047, 36.708668],
+      [3.1812403, 36.70868],
+      [3.1812189, 36.708637],
+      [3.18127, 36.708622],
+      [3.1813288, 36.708622],
+      [3.1813905, 36.708626],
+      [3.1814442, 36.70864],
+      [3.1814816, 36.708652],
+      [3.1814682, 36.70868],
+      [3.1815033, 36.708702],
+      [3.1815274, 36.708675],
+      [3.182053, 36.708958],
+      [3.1820343, 36.708977],
+      [3.1820612, 36.709003],
+      [3.1820772, 36.708992],
+      [3.1821253, 36.709026],
+      [3.1821468, 36.709045],
+      [3.182104, 36.70907],
+      [3.1820772, 36.70904],
+      [3.1820476, 36.709026],
+      [3.1820316, 36.70905],
+      [3.1820717, 36.709076],
+      [3.1820986, 36.709106],
+      [3.1821067, 36.70915],
+      [3.182104, 36.709194],
+      [3.182096, 36.70923],
+      [3.1820798, 36.70925],
+      [3.1820235, 36.709213],
+      [3.181991, 36.709198],
+      [3.1818936, 36.709145],
+      [3.181644, 36.709003],
+      [3.1813717, 36.708862],
+      [3.181301, 36.708824],
+      [3.1812377, 36.70879]
+    ],
+    [
+      [3.1829364, 36.70977],
+      [3.1830444, 36.709827],
+      [3.1831567, 36.709885],
+      [3.182702, 36.710438],
+      [3.182619, 36.71039],
+      [3.182585, 36.710426],
+      [3.1825252, 36.7104],
+      [3.1825647, 36.710358],
+      [3.1824749, 36.710316],
+      [3.1826901, 36.71005],
+      [3.1829245, 36.709763],
+      [3.1829364, 36.70977]
+    ],
+    [
+      [3.182973, 36.70973],
+      [3.1827252, 36.7096],
+      [3.182442, 36.70945],
+      [3.1823678, 36.709408],
+      [3.1822004, 36.709312],
+      [3.1822758, 36.70923],
+      [3.1823294, 36.70925],
+      [3.1823938, 36.70918],
+      [3.1825707, 36.709274],
+      [3.1825974, 36.709244],
+      [3.183134, 36.70953],
+      [3.1831124, 36.709553],
+      [3.183295, 36.709652],
+      [3.1832492, 36.7097],
+      [3.1832252, 36.709732],
+      [3.1832654, 36.709755],
+      [3.1831849, 36.709843],
+      [3.183091, 36.70979],
+      [3.182973, 36.70973]
+    ],
+    [
+      [3.1824071, 36.70949],
+      [3.182426, 36.70951],
+      [3.1821568, 36.70985],
+      [3.181986, 36.710064],
+      [3.1818922, 36.710014],
+      [3.18186, 36.710045],
+      [3.1818063, 36.710014],
+      [3.181836, 36.709988],
+      [3.181723, 36.709927],
+      [3.1821837, 36.709366],
+      [3.182282, 36.709415],
+      [3.1824071, 36.70949]
+    ],
+    [
+      [3.17767, 36.71227],
+      [3.1776743, 36.712257]
+    ],
+    [
+      [3.1776743, 36.712257],
+      [3.1776924, 36.712242]
+    ],
+    [
+      [3.1776924, 36.712242],
+      [3.1781902, 36.71164],
+      [3.1776135, 36.711327],
+      [3.1769497, 36.710968],
+      [3.176045, 36.712048],
+      [3.176559, 36.712322],
+      [3.177286, 36.712715],
+      [3.17767, 36.71227]
+    ],
+    [
+      [3.1770973, 36.71191],
+      [3.177156, 36.71193],
+      [3.1772113, 36.71194],
+      [3.17727, 36.71195],
+      [3.177313, 36.71195],
+      [3.1773593, 36.71193],
+      [3.1773963, 36.711906],
+      [3.177424, 36.711884],
+      [3.1774395, 36.711857],
+      [3.1774457, 36.711838],
+      [3.1774518, 36.711815],
+      [3.177461, 36.71179],
+      [3.177461, 36.711765],
+      [3.1774487, 36.71172],
+      [3.177424, 36.71167],
+      [3.1774025, 36.71164],
+      [3.1773717, 36.711605],
+      [3.1773317, 36.71158],
+      [3.1772976, 36.711548],
+      [3.1772792, 36.711536],
+      [3.17727, 36.711514],
+      [3.1772144, 36.71152],
+      [3.1771467, 36.71154],
+      [3.1770945, 36.71156],
+      [3.177042, 36.711586],
+      [3.177005, 36.711605],
+      [3.176962, 36.711647],
+      [3.1769402, 36.71169],
+      [3.1769402, 36.71172],
+      [3.176934, 36.71175],
+      [3.176937, 36.71178],
+      [3.1769557, 36.711815],
+      [3.1769927, 36.711845],
+      [3.1770265, 36.71187],
+      [3.1770606, 36.71189],
+      [3.1770973, 36.71191]
+    ],
+    [
+      [3.1873748, 36.714993],
+      [3.1869886, 36.715225],
+      [3.1861036, 36.71575],
+      [3.186381, 36.716053],
+      [3.1878238, 36.715187],
+      [3.1873748, 36.714993]
+    ],
+    [
+      [3.1842248, 36.71158],
+      [3.183825, 36.711952],
+      [3.1837163, 36.711983],
+      [3.1828423, 36.71196],
+      [3.1827333, 36.71188],
+      [3.182795, 36.711086],
+      [3.1828299, 36.711044],
+      [3.183195, 36.710884],
+      [3.1832502, 36.7109],
+      [3.184385, 36.71139],
+      [3.1843264, 36.711487],
+      [3.1842248, 36.71158]
+    ],
+    [
+      [3.1859493, 36.715836],
+      [3.1848555, 36.7165],
+      [3.1845343, 36.716705],
+      [3.184788, 36.716984],
+      [3.1862204, 36.716125],
+      [3.1859493, 36.715836]
+    ],
+    [
+      [3.1799223, 36.710205],
+      [3.179841, 36.710304],
+      [3.1797726, 36.710384],
+      [3.1803033, 36.710667],
+      [3.180904, 36.71099],
+      [3.1817582, 36.711445],
+      [3.182217, 36.71169],
+      [3.1822903, 36.7116],
+      [3.1823652, 36.711506],
+      [3.1811657, 36.710876],
+      [3.1811304, 36.710854],
+      [3.1810832, 36.71083],
+      [3.1799223, 36.710205]
+    ],
+    [
+      [3.1746323, 36.71328],
+      [3.1745567, 36.713364],
+      [3.1744816, 36.71345],
+      [3.1761386, 36.714752],
+      [3.1764092, 36.714966],
+      [3.1766686, 36.714855],
+      [3.1767693, 36.714794],
+      [3.1763904, 36.714558],
+      [3.1758375, 36.71424],
+      [3.1752968, 36.71383],
+      [3.1746323, 36.71328]
+    ],
+    [
+      [3.1762872, 36.7106],
+      [3.175493, 36.71019],
+      [3.1747277, 36.711143],
+      [3.1755002, 36.711563],
+      [3.1762872, 36.7106]
+    ],
+    [
+      [3.1804626, 36.71154],
+      [3.1805131, 36.711567],
+      [3.1805637, 36.711594]
+    ],
+    [
+      [3.1805637, 36.711594],
+      [3.1817384, 36.71221],
+      [3.181865, 36.71213],
+      [3.1818888, 36.71204],
+      [3.1814053, 36.711777],
+      [3.1807265, 36.711422]
+    ],
+    [
+      [3.1807265, 36.711422],
+      [3.1806767, 36.711395]
+    ],
+    [
+      [3.1806767, 36.711395],
+      [3.1801603, 36.7111],
+      [3.179441, 36.71074],
+      [3.179374, 36.71082],
+      [3.1793017, 36.710907],
+      [3.1804626, 36.71154]
+    ],
+    [
+      [3.1781263, 36.71354],
+      [3.17792, 36.71379],
+      [3.177472, 36.71434],
+      [3.1772146, 36.714203],
+      [3.1773725, 36.71402],
+      [3.177421, 36.713963],
+      [3.177658, 36.713688],
+      [3.1778839, 36.713413],
+      [3.1781263, 36.71354]
+    ],
+    [
+      [3.181429, 36.716774],
+      [3.181409, 36.716736]
+    ],
+    [
+      [3.181409, 36.716736],
+      [3.1813717, 36.71667]
+    ],
+    [
+      [3.1813717, 36.71667],
+      [3.181342, 36.716614]
+    ],
+    [
+      [3.181342, 36.716614],
+      [3.1807451, 36.715496],
+      [3.1809134, 36.71544],
+      [3.1810238, 36.7154],
+      [3.1813326, 36.71598]
+    ],
+    [
+      [3.1813326, 36.71598],
+      [3.1813574, 36.716026]
+    ],
+    [
+      [3.1813574, 36.716026],
+      [3.181691, 36.71665]
+    ],
+    [
+      [3.181691, 36.71665],
+      [3.181704, 36.716682]
+    ],
+    [
+      [3.181704, 36.716682],
+      [3.1819239, 36.7171],
+      [3.1816514, 36.71719],
+      [3.181429, 36.716774]
+    ],
+    [
+      [3.1806855, 36.71705],
+      [3.1807094, 36.71709]
+    ],
+    [
+      [3.1807094, 36.71709],
+      [3.1809034, 36.71745],
+      [3.1810539, 36.717396],
+      [3.1811857, 36.71735],
+      [3.181073, 36.71714]
+    ],
+    [
+      [3.181073, 36.71714],
+      [3.1810524, 36.7171]
+    ],
+    [
+      [3.1810524, 36.7171],
+      [3.1809113, 36.716835]
+    ],
+    [
+      [3.1809113, 36.716835],
+      [3.1808822, 36.71678]
+    ],
+    [
+      [3.1808822, 36.71678],
+      [3.1804852, 36.716045]
+    ],
+    [
+      [3.1804852, 36.716045],
+      [3.180465, 36.716003]
+    ],
+    [
+      [3.180465, 36.716003],
+      [3.1802802, 36.715652],
+      [3.1801536, 36.715694],
+      [3.1799924, 36.71575],
+      [3.1806855, 36.71705]
+    ],
+    [
+      [3.1826022, 36.7141],
+      [3.182604, 36.713993]
+    ],
+    [
+      [3.182604, 36.713993],
+      [3.1826062, 36.71387],
+      [3.1849325, 36.713898],
+      [3.1849349, 36.714012],
+      [3.1849284, 36.714127],
+      [3.184389, 36.71412],
+      [3.184261, 36.71412],
+      [3.1826022, 36.7141]
+    ],
+    [
+      [3.1849377, 36.71325],
+      [3.184964, 36.713367],
+      [3.1849341, 36.71347],
+      [3.1843777, 36.713463],
+      [3.1842294, 36.713463],
+      [3.182635, 36.713448],
+      [3.1826365, 36.71335],
+      [3.1826384, 36.713226],
+      [3.1849377, 36.71325]
+    ],
+    [
+      [3.1849291, 36.71258],
+      [3.1849294, 36.712704],
+      [3.1849263, 36.712803],
+      [3.1845677, 36.7128],
+      [3.1843643, 36.7128],
+      [3.1826198, 36.71279],
+      [3.1826162, 36.71266],
+      [3.1826222, 36.71256],
+      [3.1849291, 36.71258]
+    ],
+    [
+      [3.181056, 36.71319],
+      [3.1806827, 36.713634],
+      [3.1809282, 36.71378],
+      [3.1810062, 36.713818],
+      [3.1813576, 36.713997],
+      [3.181731, 36.71355],
+      [3.181056, 36.71319]
+    ],
+    [
+      [3.1828804, 36.71501],
+      [3.1828392, 36.714985]
+    ],
+    [
+      [3.1828392, 36.714985],
+      [3.1826632, 36.714897]
+    ],
+    [
+      [3.1826632, 36.714897],
+      [3.1826086, 36.714867]
+    ],
+    [
+      [3.1826086, 36.714867],
+      [3.182163, 36.714634],
+      [3.182256, 36.71452],
+      [3.1823335, 36.714428],
+      [3.1842735, 36.715446],
+      [3.184194, 36.715553],
+      [3.1841033, 36.715656],
+      [3.1828804, 36.71501]
+    ],
+    [
+      [3.182317, 36.71678],
+      [3.1822946, 36.71674]
+    ],
+    [
+      [3.1822946, 36.71674],
+      [3.1818278, 36.715866]
+    ],
+    [
+      [3.1818278, 36.715866],
+      [3.1818032, 36.71582]
+    ],
+    [
+      [3.1818032, 36.71582],
+      [3.1814964, 36.715244],
+      [3.1816297, 36.71519],
+      [3.18177, 36.715145],
+      [3.181959, 36.715496]
+    ],
+    [
+      [3.181959, 36.715496],
+      [3.1819787, 36.715538]
+    ],
+    [
+      [3.1819787, 36.715538],
+      [3.182678, 36.71684],
+      [3.1825435, 36.716877],
+      [3.182399, 36.716934],
+      [3.182317, 36.71678]
+    ],
+    [
+      [3.1809344, 36.71211],
+      [3.1810498, 36.712],
+      [3.1808758, 36.711906],
+      [3.1808126, 36.712044]
+    ],
+    [
+      [3.1808126, 36.712044],
+      [3.180791, 36.71207],
+      [3.1809127, 36.712135],
+      [3.1809344, 36.71211]
+    ],
+    [
+      [3.181913, 36.717712],
+      [3.181867, 36.717632],
+      [3.18182, 36.717537],
+      [3.1825626, 36.717285],
+      [3.182608, 36.71737],
+      [3.1826556, 36.717457],
+      [3.181913, 36.717712]
+    ],
+    [
+      [3.181959, 36.715496],
+      [3.181994, 36.71548],
+      [3.1819932, 36.71541],
+      [3.1820612, 36.71538],
+      [3.1821282, 36.715446],
+      [3.1821468, 36.715534],
+      [3.1820745, 36.71556],
+      [3.1820235, 36.715523],
+      [3.1819787, 36.715538]
+    ],
+    [
+      [3.1791916, 36.71132],
+      [3.1790175, 36.711437],
+      [3.1792407, 36.71156],
+      [3.1793263, 36.71139]
+    ],
+    [
+      [3.1793263, 36.71139],
+      [3.179348, 36.711365],
+      [3.179213, 36.711292],
+      [3.1791916, 36.71132]
+    ],
+    [
+      [3.1799986, 36.71161],
+      [3.180094, 36.71153],
+      [3.1799605, 36.71146],
+      [3.179904, 36.71156]
+    ],
+    [
+      [3.179904, 36.71156],
+      [3.1798823, 36.711586],
+      [3.179977, 36.711636],
+      [3.1799986, 36.71161]
+    ],
+    [
+      [3.1786213, 36.71462],
+      [3.1784973, 36.714558],
+      [3.1787279, 36.71426],
+      [3.178868, 36.71431],
+      [3.1789362, 36.714336],
+      [3.1789987, 36.71434],
+      [3.179039, 36.714336],
+      [3.1790793, 36.714348],
+      [3.179259, 36.714405],
+      [3.1797578, 36.713825],
+      [3.179766, 36.7138],
+      [3.1797578, 36.71378],
+      [3.1797445, 36.71376],
+      [3.179396, 36.71357],
+      [3.179369, 36.713562],
+      [3.1793423, 36.713573],
+      [3.1792805, 36.713646],
+      [3.1792402, 36.71367],
+      [3.179192, 36.713673],
+      [3.179149, 36.713657],
+      [3.1790068, 36.71359],
+      [3.1788728, 36.713757],
+      [3.1788647, 36.713787],
+      [3.178878, 36.713814],
+      [3.1789157, 36.71384],
+      [3.179133, 36.71395],
+      [3.1791544, 36.713985],
+      [3.1791599, 36.714027],
+      [3.1791463, 36.714066],
+      [3.1790042, 36.714233],
+      [3.1789613, 36.714264],
+      [3.178905, 36.71428],
+      [3.1788514, 36.714275],
+      [3.178811, 36.714264],
+      [3.1787386, 36.714226],
+      [3.1786983, 36.71422],
+      [3.1786609, 36.71423],
+      [3.1784275, 36.714516],
+      [3.1784196, 36.714542],
+      [3.1784248, 36.714573],
+      [3.1784544, 36.714592],
+      [3.1785858, 36.714657],
+      [3.1786213, 36.71462]
+    ],
+    [
+      [3.1810498, 36.71051],
+      [3.1809428, 36.7106],
+      [3.1811006, 36.71069],
+      [3.1811638, 36.710567]
+    ],
+    [
+      [3.1811638, 36.710567],
+      [3.1811707, 36.710556],
+      [3.181177, 36.710545],
+      [3.1810732, 36.71049],
+      [3.1810498, 36.71051]
+    ],
+    [
+      [3.1811416, 36.710403],
+      [3.181259, 36.71031],
+      [3.1810918, 36.710217],
+      [3.1810153, 36.710342]
+    ],
+    [
+      [3.1810153, 36.710342],
+      [3.1810048, 36.710358],
+      [3.1811156, 36.710423],
+      [3.1811304, 36.71041],
+      [3.1811416, 36.710403]
+    ],
+    [
+      [3.1801007, 36.711803],
+      [3.1799953, 36.71188],
+      [3.1801274, 36.711952],
+      [3.180196, 36.711853]
+    ],
+    [
+      [3.180196, 36.711853],
+      [3.1802175, 36.71183],
+      [3.1801224, 36.711777],
+      [3.1801007, 36.711803]
+    ],
+    [
+      [3.1797457, 36.711613],
+      [3.179637, 36.71169],
+      [3.1797652, 36.711758],
+      [3.1798232, 36.711655]
+    ],
+    [
+      [3.1798232, 36.711655],
+      [3.1798446, 36.711628],
+      [3.1797671, 36.711586],
+      [3.1797457, 36.711613]
+    ],
+    [
+      [3.1828804, 36.71501],
+      [3.1828444, 36.71505],
+      [3.1829033, 36.715107],
+      [3.1828496, 36.71516],
+      [3.182772, 36.71514],
+      [3.1827264, 36.715115],
+      [3.1826754, 36.71507],
+      [3.1827154, 36.71502],
+      [3.1827986, 36.71503],
+      [3.1828392, 36.714985]
+    ],
+    [
+      [3.1765008, 36.71438],
+      [3.1776114, 36.713024],
+      [3.177901, 36.71318],
+      [3.1775575, 36.71361],
+      [3.1767879, 36.71454],
+      [3.1765008, 36.71438]
+    ],
+    [
+      [3.1810524, 36.7171],
+      [3.1810982, 36.717083],
+      [3.1810923, 36.717022],
+      [3.181157, 36.717003],
+      [3.1812081, 36.717045],
+      [3.1812518, 36.71715],
+      [3.1811733, 36.71717],
+      [3.1811197, 36.717125],
+      [3.181073, 36.71714]
+    ],
+    [
+      [3.1818724, 36.7108],
+      [3.1819894, 36.710705],
+      [3.1818366, 36.710632],
+      [3.1817634, 36.710743]
+    ],
+    [
+      [3.1817634, 36.710743],
+      [3.1817493, 36.710762],
+      [3.1818533, 36.710815],
+      [3.1818724, 36.7108]
+    ],
+    [
+      [3.1821148, 36.710926],
+      [3.1822245, 36.710827],
+      [3.1820662, 36.710743],
+      [3.182011, 36.710835],
+      [3.181991, 36.710865]
+    ],
+    [
+      [3.181991, 36.710865],
+      [3.181977, 36.710888],
+      [3.1820905, 36.710945],
+      [3.1821148, 36.710926]
+    ],
+    [
+      [3.180699, 36.711983],
+      [3.1808221, 36.71188],
+      [3.1806476, 36.71179],
+      [3.18059, 36.711926]
+    ],
+    [
+      [3.18059, 36.711926],
+      [3.180568, 36.711952],
+      [3.1806772, 36.71201],
+      [3.180699, 36.711983]
+    ],
+    [
+      [3.180398, 36.711964],
+      [3.180267, 36.71206],
+      [3.1804323, 36.712147],
+      [3.1805067, 36.71202]
+    ],
+    [
+      [3.1805067, 36.71202],
+      [3.1805274, 36.711994],
+      [3.1804197, 36.711937],
+      [3.180398, 36.711964]
+    ],
+    [
+      [3.1806855, 36.71705],
+      [3.180637, 36.717064],
+      [3.1805744, 36.717026],
+      [3.1805108, 36.717052],
+      [3.1805134, 36.717106],
+      [3.1805348, 36.717148],
+      [3.1805859, 36.7172],
+      [3.1806636, 36.71718],
+      [3.1806583, 36.71711],
+      [3.1807094, 36.71709]
+    ],
+    [
+      [3.1826086, 36.714867],
+      [3.1825707, 36.714905],
+      [3.1824982, 36.71489],
+      [3.18245, 36.714943],
+      [3.182509, 36.715],
+      [3.182627, 36.715042],
+      [3.1826725, 36.714996],
+      [3.182624, 36.71494],
+      [3.1826632, 36.714897]
+    ],
+    [
+      [3.1808822, 36.71678],
+      [3.181136, 36.71669],
+      [3.181342, 36.716614]
+    ],
+    [
+      [3.1813717, 36.71667],
+      [3.181163, 36.716743],
+      [3.1809113, 36.716835]
+    ],
+    [
+      [3.182317, 36.71678],
+      [3.1822515, 36.7168],
+      [3.1822622, 36.71686],
+      [3.1821792, 36.716892],
+      [3.1821253, 36.716843],
+      [3.1821094, 36.716812],
+      [3.182096, 36.716743],
+      [3.1821737, 36.716713],
+      [3.1822274, 36.71676],
+      [3.1822946, 36.71674]
+    ],
+    [
+      [3.182009, 36.714615],
+      [3.1820407, 36.714577]
+    ],
+    [
+      [3.1820407, 36.714577],
+      [3.1819944, 36.71455],
+      [3.182002, 36.71454],
+      [3.1809108, 36.713947],
+      [3.1808312, 36.71391],
+      [3.1777587, 36.71226],
+      [3.1777363, 36.712257],
+      [3.1776924, 36.712242]
+    ],
+    [
+      [3.17767, 36.71227],
+      [3.177708, 36.71229],
+      [3.177708, 36.71231],
+      [3.1819484, 36.71459],
+      [3.1819592, 36.71458],
+      [3.182009, 36.714615]
+    ],
+    [
+      [3.1801784, 36.711704],
+      [3.180269, 36.711624],
+      [3.180134, 36.71155],
+      [3.1800933, 36.71166]
+    ],
+    [
+      [3.1800933, 36.71166],
+      [3.1800714, 36.711685],
+      [3.1801567, 36.71173],
+      [3.1801784, 36.711704]
+    ],
+    [
+      [3.1799226, 36.711708],
+      [3.1798048, 36.711777],
+      [3.1799445, 36.711853],
+      [3.1800003, 36.71175]
+    ],
+    [
+      [3.1800003, 36.71175],
+      [3.1800218, 36.711723],
+      [3.179944, 36.71168],
+      [3.1799226, 36.711708]
+    ],
+    [
+      [3.1813326, 36.71598],
+      [3.1816304, 36.715878],
+      [3.1818032, 36.71582]
+    ],
+    [
+      [3.1818278, 36.715866],
+      [3.181656, 36.715923],
+      [3.1813574, 36.716026]
+    ],
+    [
+      [3.180465, 36.716003],
+      [3.1805081, 36.71599],
+      [3.1805046, 36.715927],
+      [3.1805644, 36.715904],
+      [3.180618, 36.715946],
+      [3.1806421, 36.71599],
+      [3.1806502, 36.716053],
+      [3.1805859, 36.716076],
+      [3.1805296, 36.716034],
+      [3.1804852, 36.716045]
+    ],
+    [
+      [3.180669, 36.71015],
+      [3.1807888, 36.71006],
+      [3.1806352, 36.709972],
+      [3.18056, 36.71009]
+    ],
+    [
+      [3.18056, 36.71009],
+      [3.1805491, 36.710117],
+      [3.180647, 36.710163],
+      [3.1806576, 36.710155],
+      [3.180669, 36.71015]
+    ],
+    [
+      [3.1820407, 36.714577],
+      [3.182458, 36.714058],
+      [3.1824727, 36.713017],
+      [3.1824803, 36.71247],
+      [3.1825435, 36.712467],
+      [3.1826212, 36.712475],
+      [3.1826062, 36.712696],
+      [3.1826057, 36.713017],
+      [3.182604, 36.713993]
+    ],
+    [
+      [3.1826022, 36.7141],
+      [3.1817179, 36.71514],
+      [3.1812847, 36.71529],
+      [3.179877, 36.715775],
+      [3.1798356, 36.715714],
+      [3.1798282, 36.715683],
+      [3.179845, 36.715675],
+      [3.180535, 36.71544],
+      [3.1813257, 36.715168],
+      [3.1816347, 36.715057],
+      [3.182009, 36.714615]
+    ],
+    [
+      [3.1798232, 36.711655],
+      [3.1799226, 36.711708]
+    ],
+    [
+      [3.1800003, 36.71175],
+      [3.1801007, 36.711803]
+    ],
+    [
+      [3.180196, 36.711853],
+      [3.180291, 36.711906],
+      [3.180398, 36.711964]
+    ],
+    [
+      [3.1805067, 36.71202],
+      [3.1806252, 36.712082]
+    ],
+    [
+      [3.1806252, 36.712082],
+      [3.180647, 36.71206],
+      [3.1807585, 36.712116],
+      [3.180737, 36.712143]
+    ],
+    [
+      [3.180737, 36.712143],
+      [3.180853, 36.712204]
+    ],
+    [
+      [3.180853, 36.712204],
+      [3.1808743, 36.712177],
+      [3.1809888, 36.71224],
+      [3.180967, 36.712265]
+    ],
+    [
+      [3.180967, 36.712265],
+      [3.1810417, 36.712307],
+      [3.1810875, 36.71233],
+      [3.1811092, 36.712303],
+      [3.1811292, 36.71228],
+      [3.1811464, 36.71226],
+      [3.181168, 36.712234],
+      [3.1810486, 36.71217],
+      [3.1809344, 36.71211]
+    ],
+    [
+      [3.1808126, 36.712044],
+      [3.180699, 36.711983]
+    ],
+    [
+      [3.18059, 36.711926],
+      [3.180382, 36.711815]
+    ],
+    [
+      [3.180382, 36.711815],
+      [3.1803315, 36.71179],
+      [3.180281, 36.71176]
+    ],
+    [
+      [3.180281, 36.71176],
+      [3.1801784, 36.711704]
+    ],
+    [
+      [3.1800933, 36.71166],
+      [3.1799986, 36.71161]
+    ],
+    [
+      [3.179904, 36.71156],
+      [3.1796527, 36.711426]
+    ],
+    [
+      [3.1796527, 36.711426],
+      [3.1796308, 36.711452],
+      [3.1794906, 36.711376],
+      [3.1795123, 36.71135]
+    ],
+    [
+      [3.1795123, 36.71135],
+      [3.1794286, 36.711304],
+      [3.1791513, 36.71116],
+      [3.1791296, 36.71118],
+      [3.1791122, 36.711205],
+      [3.1790924, 36.711227],
+      [3.1790707, 36.711254],
+      [3.179095, 36.711266],
+      [3.1791916, 36.71132]
+    ],
+    [
+      [3.1793263, 36.71139],
+      [3.1796577, 36.711567],
+      [3.1797457, 36.711613]
+    ],
+    [
+      [3.1816468, 36.710674],
+      [3.1817594, 36.71058],
+      [3.1815968, 36.7105],
+      [3.181528, 36.71061]
+    ],
+    [
+      [3.181528, 36.71061],
+      [3.1815114, 36.710636],
+      [3.1816218, 36.710693],
+      [3.1816347, 36.710686],
+      [3.1816468, 36.710674]
+    ],
+    [
+      [3.181691, 36.71665],
+      [3.181731, 36.71664],
+      [3.1817033, 36.716564],
+      [3.1817956, 36.71654],
+      [3.18186, 36.716602],
+      [3.181876, 36.71669],
+      [3.1818037, 36.716717],
+      [3.1817472, 36.716675],
+      [3.181704, 36.716682]
+    ],
+    [
+      [3.1808197, 36.71038],
+      [3.180716, 36.71048],
+      [3.1808698, 36.71056],
+      [3.1809368, 36.710445]
+    ],
+    [
+      [3.1809368, 36.710445],
+      [3.1809409, 36.710434],
+      [3.1809466, 36.710423],
+      [3.1808412, 36.71036],
+      [3.1808197, 36.71038]
+    ],
+    [
+      [3.1821897, 36.70916],
+      [3.1821334, 36.709164],
+      [3.1821282, 36.709133],
+      [3.1821227, 36.70911],
+      [3.1821094, 36.709084],
+      [3.1821575, 36.70906],
+      [3.1821783, 36.709095],
+      [3.1821845, 36.70913],
+      [3.1821897, 36.70916]
+    ],
+    [
+      [3.1787493, 36.715023],
+      [3.1785939, 36.715214],
+      [3.1785562, 36.71523],
+      [3.178508, 36.71523],
+      [3.1781218, 36.71502],
+      [3.1780975, 36.71498],
+      [3.1780922, 36.714954],
+      [3.1780975, 36.714924],
+      [3.1782372, 36.714737],
+      [3.1787493, 36.715023]
+    ],
+    [
+      [3.1817734, 36.710915],
+      [3.18169, 36.710995],
+      [3.1818533, 36.71108],
+      [3.1819093, 36.710964]
+    ],
+    [
+      [3.1819093, 36.710964],
+      [3.1819212, 36.71094],
+      [3.1818225, 36.710888],
+      [3.181808, 36.7109],
+      [3.1817734, 36.710915]
+    ],
+    [
+      [3.1796527, 36.711426],
+      [3.1798534, 36.711296],
+      [3.1796038, 36.711163],
+      [3.1795123, 36.71135]
+    ],
+    [
+      [3.1821964, 36.711006],
+      [3.182173, 36.711033],
+      [3.1821525, 36.711056]
+    ],
+    [
+      [3.1821525, 36.711056],
+      [3.182134, 36.71108],
+      [3.1823077, 36.711216],
+      [3.1824577, 36.711056],
+      [3.1822245, 36.710976],
+      [3.1821964, 36.711006]
+    ],
+    [
+      [3.1806252, 36.712082],
+      [3.1804972, 36.71218],
+      [3.1806607, 36.71227],
+      [3.180737, 36.712143]
+    ],
+    [
+      [3.181429, 36.716774],
+      [3.1813636, 36.716797],
+      [3.1813717, 36.71687],
+      [3.181302, 36.716896],
+      [3.181224, 36.716812],
+      [3.1812162, 36.71675],
+      [3.1812913, 36.71672],
+      [3.1813369, 36.716763],
+      [3.181409, 36.716736]
+    ],
+    [
+      [3.1809032, 36.710278],
+      [3.181022, 36.710186],
+      [3.1808631, 36.71009],
+      [3.1807873, 36.710217]
+    ],
+    [
+      [3.1807873, 36.710217],
+      [3.180776, 36.710236],
+      [3.1808813, 36.710297],
+      [3.1808932, 36.71029],
+      [3.1809032, 36.710278]
+    ],
+    [
+      [3.1758275, 36.712963],
+      [3.1754978, 36.712788],
+      [3.1751893, 36.713177],
+      [3.1755245, 36.713352],
+      [3.1757555, 36.71306],
+      [3.1758275, 36.712963]
+    ],
+    [
+      [3.1810498, 36.71051],
+      [3.1809368, 36.710445]
+    ],
+    [
+      [3.1808197, 36.71038],
+      [3.1807067, 36.710316]
+    ],
+    [
+      [3.1807067, 36.710316],
+      [3.1807108, 36.710304],
+      [3.180715, 36.710293],
+      [3.1806128, 36.710236],
+      [3.180585, 36.710262]
+    ],
+    [
+      [3.180585, 36.710262],
+      [3.1804168, 36.71016],
+      [3.1804276, 36.710133],
+      [3.1803901, 36.710114]
+    ],
+    [
+      [3.1803901, 36.710114],
+      [3.180415, 36.710087],
+      [3.180437, 36.710064]
+    ],
+    [
+      [3.180437, 36.710064],
+      [3.1804678, 36.71008],
+      [3.1805027, 36.710056],
+      [3.18056, 36.71009]
+    ],
+    [
+      [3.180669, 36.71015],
+      [3.1807873, 36.710217]
+    ],
+    [
+      [3.1809032, 36.710278],
+      [3.1810153, 36.710342]
+    ],
+    [
+      [3.1811416, 36.710403],
+      [3.1813703, 36.710526],
+      [3.181528, 36.71061]
+    ],
+    [
+      [3.1816468, 36.710674],
+      [3.1817634, 36.710743]
+    ],
+    [
+      [3.1818724, 36.7108],
+      [3.181991, 36.710865]
+    ],
+    [
+      [3.1821148, 36.710926],
+      [3.1821897, 36.710968],
+      [3.1821685, 36.71099],
+      [3.1821964, 36.711006]
+    ],
+    [
+      [3.1821525, 36.711056],
+      [3.1821067, 36.711037],
+      [3.1820772, 36.711056],
+      [3.1819093, 36.710964]
+    ],
+    [
+      [3.1817734, 36.710915],
+      [3.181527, 36.71076]
+    ],
+    [
+      [3.181527, 36.71076],
+      [3.1814988, 36.710743],
+      [3.1814651, 36.710724]
+    ],
+    [
+      [3.1814651, 36.710724],
+      [3.1813507, 36.71066],
+      [3.1813142, 36.71064],
+      [3.1812704, 36.710617],
+      [3.1811638, 36.710567]
+    ],
+    [
+      [3.180853, 36.712204],
+      [3.1807237, 36.712303],
+      [3.1808968, 36.712395],
+      [3.180967, 36.712265]
+    ],
+    [
+      [3.180437, 36.710064],
+      [3.180461, 36.710037],
+      [3.1803002, 36.7099],
+      [3.1801457, 36.710068],
+      [3.180364, 36.71014],
+      [3.1803901, 36.710114]
+    ],
+    [
+      [3.180585, 36.710262],
+      [3.180488, 36.71035],
+      [3.1806378, 36.710434],
+      [3.1807067, 36.710316]
+    ],
+    [
+      [3.1834168, 36.717472],
+      [3.1835709, 36.717648],
+      [3.1837986, 36.717518],
+      [3.1837077, 36.717415],
+      [3.183665, 36.717438],
+      [3.1836462, 36.717426],
+      [3.1836169, 36.717422],
+      [3.1835873, 36.717434],
+      [3.1835563, 36.71745],
+      [3.1835423, 36.717457],
+      [3.1835086, 36.71742],
+      [3.1834168, 36.717472]
+    ],
+    [
+      [3.1806767, 36.711395],
+      [3.1807423, 36.71137],
+      [3.1807523, 36.71136],
+      [3.1807172, 36.711338],
+      [3.180763, 36.711292],
+      [3.1809897, 36.71142],
+      [3.18095, 36.711464],
+      [3.1807978, 36.71138],
+      [3.1807265, 36.711422]
+    ],
+    [
+      [3.1870694, 36.714874],
+      [3.1866722, 36.714657],
+      [3.1872108, 36.71402],
+      [3.187608, 36.714237],
+      [3.1870694, 36.714874]
+    ],
+    [
+      [3.1804626, 36.71154],
+      [3.180281, 36.71176]
+    ],
+    [
+      [3.180382, 36.711815],
+      [3.1804183, 36.71177]
+    ],
+    [
+      [3.1804183, 36.71177],
+      [3.1804562, 36.711723],
+      [3.180494, 36.711678],
+      [3.180532, 36.711636]
+    ],
+    [
+      [3.180532, 36.711636],
+      [3.1805637, 36.711594]
+    ],
+    [
+      [3.1804183, 36.71177],
+      [3.1805146, 36.711796],
+      [3.1805978, 36.711697],
+      [3.180532, 36.711636]
+    ],
+    [
+      [3.1792126, 36.710003],
+      [3.1790435, 36.71008],
+      [3.1790597, 36.710106],
+      [3.1790006, 36.710133],
+      [3.1790462, 36.71021],
+      [3.1790972, 36.71029],
+      [3.1791456, 36.710262],
+      [3.1791615, 36.710278],
+      [3.1792715, 36.710224],
+      [3.1793585, 36.710186],
+      [3.1794138, 36.710163],
+      [3.1793568, 36.710075],
+      [3.179286, 36.710106],
+      [3.1792126, 36.710003]
+    ],
+    [
+      [3.1838665, 36.71745],
+      [3.183712, 36.717274],
+      [3.183836, 36.717205],
+      [3.1840508, 36.71708],
+      [3.1841886, 36.717],
+      [3.184346, 36.71717],
+      [3.1842074, 36.71725],
+      [3.1839955, 36.717373],
+      [3.1838665, 36.71745]
+    ],
+    [
+      [3.18701, 36.71315],
+      [3.1869533, 36.71322],
+      [3.187131, 36.713314],
+      [3.1871576, 36.71328],
+      [3.1871877, 36.71324],
+      [3.18701, 36.71315]
+    ],
+    [
+      [3.186828, 36.71308],
+      [3.1867867, 36.713146],
+      [3.1866455, 36.713085],
+      [3.186663, 36.713062],
+      [3.1866868, 36.713024],
+      [3.1867645, 36.713055],
+      [3.1868236, 36.71308],
+      [3.186828, 36.71308]
+    ],
+    [
+      [3.1864896, 36.71503],
+      [3.1863308, 36.715134],
+      [3.1864421, 36.715244],
+      [3.1866171, 36.71513],
+      [3.1867197, 36.715233],
+      [3.186579, 36.715324],
+      [3.1865907, 36.715336],
+      [3.1865587, 36.715355],
+      [3.1863735, 36.71548],
+      [3.186355, 36.71546],
+      [3.186318, 36.71549],
+      [3.186302, 36.715473],
+      [3.186214, 36.71553],
+      [3.1861272, 36.715446],
+      [3.1861327, 36.715427],
+      [3.1861522, 36.71541],
+      [3.1860898, 36.715366],
+      [3.186071, 36.71534],
+      [3.1860628, 36.715313],
+      [3.1858604, 36.715473],
+      [3.1858406, 36.71549],
+      [3.1857085, 36.715374],
+      [3.1859584, 36.71519],
+      [3.1859236, 36.71517],
+      [3.1859314, 36.715134],
+      [3.1859932, 36.715073],
+      [3.1860306, 36.715054],
+      [3.1861086, 36.715034],
+      [3.1861355, 36.71506],
+      [3.1863687, 36.714912],
+      [3.1864896, 36.71503]
+    ],
+    [
+      [3.1845198, 36.716846],
+      [3.1846666, 36.71701],
+      [3.1844375, 36.71714],
+      [3.1843412, 36.717033],
+      [3.1843817, 36.71701],
+      [3.1843705, 36.717],
+      [3.184368, 36.716984],
+      [3.1843731, 36.716972],
+      [3.1844504, 36.716927],
+      [3.1844254, 36.7169],
+      [3.1845198, 36.716846]
+    ],
+    [
+      [3.1842167, 36.716877],
+      [3.1839817, 36.71702],
+      [3.1837773, 36.7168],
+      [3.1838448, 36.716763],
+      [3.1839306, 36.716774],
+      [3.18405, 36.7167],
+      [3.1842167, 36.716877]
+    ],
+    [
+      [3.185904, 36.71474],
+      [3.1856012, 36.714577],
+      [3.1858032, 36.714336],
+      [3.1861057, 36.714497],
+      [3.185904, 36.71474]
+    ],
+    [
+      [3.1837776, 36.71714],
+      [3.1835513, 36.71727],
+      [3.1833937, 36.717087],
+      [3.1834853, 36.717033],
+      [3.1834774, 36.71697],
+      [3.1835854, 36.71691],
+      [3.1837, 36.717045],
+      [3.1837776, 36.71714]
+    ],
+    [
+      [3.1763132, 36.71335],
+      [3.176136, 36.71357],
+      [3.176179, 36.713593],
+      [3.1761441, 36.713634],
+      [3.1760798, 36.713604],
+      [3.1759858, 36.71371],
+      [3.1760368, 36.713737],
+      [3.1760206, 36.713776],
+      [3.1760206, 36.71382],
+      [3.1760423, 36.713867],
+      [3.1760745, 36.713894],
+      [3.17612, 36.71391],
+      [3.176163, 36.71391],
+      [3.1762004, 36.71391],
+      [3.1762407, 36.713894],
+      [3.1762702, 36.71387],
+      [3.1762943, 36.71389],
+      [3.1762595, 36.71393],
+      [3.1763802, 36.713993],
+      [3.1764176, 36.713978],
+      [3.1764605, 36.713955],
+      [3.1764874, 36.713924],
+      [3.1765008, 36.713894],
+      [3.1765115, 36.71385],
+      [3.176423, 36.713795],
+      [3.176464, 36.71375],
+      [3.1765103, 36.713696],
+      [3.1765404, 36.71371],
+      [3.1765983, 36.713634],
+      [3.1764793, 36.71357],
+      [3.1764624, 36.713596],
+      [3.1763587, 36.71354],
+      [3.176458, 36.71343],
+      [3.1763132, 36.71335]
+    ],
+    [
+      [3.1854258, 36.715282],
+      [3.1851869, 36.71525],
+      [3.1851823, 36.715267],
+      [3.1851542, 36.715263],
+      [3.1851358, 36.715343],
+      [3.1851537, 36.715347],
+      [3.1851623, 36.715355],
+      [3.1851673, 36.715363],
+      [3.1853857, 36.715405],
+      [3.1853924, 36.715374],
+      [3.1854165, 36.715366],
+      [3.1854336, 36.71535],
+      [3.1854322, 36.715332],
+      [3.1854188, 36.715313],
+      [3.1854258, 36.715282]
+    ],
+    [
+      [3.1858716, 36.71421],
+      [3.1860888, 36.71396],
+      [3.1864157, 36.714138],
+      [3.1861985, 36.71439],
+      [3.1858716, 36.71421]
+    ],
+    [
+      [3.18635, 36.712917],
+      [3.1865523, 36.712627],
+      [3.1866386, 36.712666],
+      [3.1866853, 36.712597],
+      [3.1872969, 36.71287],
+      [3.1872606, 36.712925],
+      [3.1873422, 36.71296],
+      [3.1872694, 36.713066],
+      [3.1871867, 36.713024],
+      [3.1872172, 36.71298],
+      [3.1872432, 36.712944],
+      [3.1867833, 36.712738],
+      [3.1866343, 36.71267],
+      [3.1865525, 36.712788],
+      [3.186449, 36.712936],
+      [3.186535, 36.712975],
+      [3.1865802, 36.712997],
+      [3.186531, 36.713066],
+      [3.1863954, 36.713005],
+      [3.1864316, 36.712955],
+      [3.18635, 36.712917]
+    ],
+    [
+      [3.186684, 36.713257],
+      [3.1864786, 36.7135],
+      [3.1867893, 36.71367],
+      [3.1869566, 36.71347],
+      [3.1869948, 36.713425],
+      [3.1869228, 36.713387],
+      [3.186684, 36.713257]
+    ],
+    [
+      [3.1881359, 36.715004],
+      [3.1887012, 36.71428],
+      [3.188424, 36.71401],
+      [3.1882234, 36.713814],
+      [3.187579, 36.71472],
+      [3.1881359, 36.715004]
+    ],
+    [
+      [3.1788073, 36.710896],
+      [3.1787455, 36.710903],
+      [3.1787412, 36.71088],
+      [3.178803, 36.710873],
+      [3.1788073, 36.710896]
+    ],
+    [
+      [3.1786716, 36.710922],
+      [3.1786025, 36.710934],
+      [3.178594, 36.710907],
+      [3.1786635, 36.71089],
+      [3.1786716, 36.710922]
+    ],
+    [
+      [3.1785433, 36.710953],
+      [3.1784785, 36.710968],
+      [3.1784606, 36.710915],
+      [3.1785257, 36.7109],
+      [3.1785433, 36.710953]
+    ],
+    [
+      [3.1780381, 36.711002],
+      [3.177993, 36.711025],
+      [3.1779745, 36.711056],
+      [3.177992, 36.71108],
+      [3.1780348, 36.7111],
+      [3.1780753, 36.711113],
+      [3.1780958, 36.71111],
+      [3.1780608, 36.71115],
+      [3.178156, 36.7112],
+      [3.1781814, 36.711212],
+      [3.178223, 36.711235],
+      [3.1782632, 36.71126],
+      [3.178367, 36.711323],
+      [3.1784472, 36.71124],
+      [3.178429, 36.711227],
+      [3.1784616, 36.7112],
+      [3.178159, 36.71103],
+      [3.1781347, 36.711052],
+      [3.1781108, 36.71105],
+      [3.1780815, 36.71102],
+      [3.1780381, 36.711002]
+    ],
+    [
+      [3.1797144, 36.709984],
+      [3.179724, 36.70999],
+      [3.1797345, 36.70999],
+      [3.179745, 36.70999],
+      [3.1797566, 36.709984],
+      [3.179785, 36.709965],
+      [3.1798115, 36.709946],
+      [3.1798208, 36.709938],
+      [3.1798244, 36.70993],
+      [3.1798208, 36.70992],
+      [3.1798148, 36.709908],
+      [3.1798067, 36.7099],
+      [3.1797962, 36.709908],
+      [3.179745, 36.709846],
+      [3.1796422, 36.709908],
+      [3.1796806, 36.70995],
+      [3.1797144, 36.709984]
+    ],
+    [
+      [3.1798534, 36.709774],
+      [3.1798074, 36.709812],
+      [3.1798651, 36.709854],
+      [3.1798866, 36.70984],
+      [3.179911, 36.709816],
+      [3.1798534, 36.709774]
+    ],
+    [
+      [3.184848, 36.71643],
+      [3.1845956, 36.71625],
+      [3.1849744, 36.715908],
+      [3.1849675, 36.715874],
+      [3.1849744, 36.71582],
+      [3.1849852, 36.71581],
+      [3.1850019, 36.71577],
+      [3.1850235, 36.715748],
+      [3.1850512, 36.71572],
+      [3.185076, 36.71571],
+      [3.1850975, 36.7157],
+      [3.185125, 36.715683],
+      [3.1851683, 36.71568],
+      [3.1852176, 36.715706],
+      [3.1852238, 36.715668],
+      [3.1852267, 36.71564],
+      [3.1852617, 36.715466],
+      [3.1855936, 36.71551],
+      [3.1855597, 36.715675],
+      [3.1855216, 36.71584],
+      [3.1853683, 36.715816],
+      [3.1854358, 36.715527],
+      [3.1853755, 36.71552],
+      [3.185327, 36.715725],
+      [3.1852992, 36.71577],
+      [3.1854248, 36.715866],
+      [3.1854582, 36.715866],
+      [3.1854978, 36.715904],
+      [3.1854672, 36.715923],
+      [3.1854458, 36.71593],
+      [3.185416, 36.715958],
+      [3.185416, 36.715973],
+      [3.1853929, 36.716],
+      [3.1853557, 36.715965],
+      [3.185352, 36.715942],
+      [3.185264, 36.716022],
+      [3.1852858, 36.716038],
+      [3.184848, 36.71643]
+    ],
+    [
+      [3.185179, 36.715084],
+      [3.1851957, 36.71509],
+      [3.18522, 36.715115],
+      [3.1852088, 36.71513],
+      [3.1852016, 36.71513],
+      [3.1851883, 36.71515],
+      [3.1851676, 36.71515],
+      [3.1851435, 36.715134],
+      [3.1851456, 36.715122],
+      [3.18516, 36.71511],
+      [3.1851656, 36.7151],
+      [3.1851676, 36.715096],
+      [3.185179, 36.715084]
+    ],
+    [
+      [3.1853087, 36.714867],
+      [3.1853132, 36.714756],
+      [3.1852148, 36.714756],
+      [3.1852102, 36.714863],
+      [3.1853087, 36.714867]
+    ],
+    [
+      [3.1839416, 36.714493],
+      [3.1839538, 36.714497],
+      [3.1839643, 36.714504],
+      [3.1839724, 36.71451],
+      [3.1839771, 36.714523],
+      [3.1839788, 36.714535],
+      [3.183977, 36.714542],
+      [3.1839716, 36.714554],
+      [3.1839633, 36.71456],
+      [3.1839526, 36.71457],
+      [3.1839402, 36.714573],
+      [3.1839268, 36.714573],
+      [3.1839135, 36.714573],
+      [3.1839008, 36.71457],
+      [3.1838913, 36.714565],
+      [3.1838837, 36.714558],
+      [3.183878, 36.71455],
+      [3.1838748, 36.71454],
+      [3.1838744, 36.71453],
+      [3.1838763, 36.71452],
+      [3.1838808, 36.71451],
+      [3.1838877, 36.714504],
+      [3.1838965, 36.714497],
+      [3.183907, 36.714493],
+      [3.1839182, 36.714493],
+      [3.18393, 36.71449],
+      [3.1839416, 36.714493]
+    ],
+    [
+      [3.1814651, 36.710724],
+      [3.181448, 36.710754],
+      [3.1814315, 36.71074],
+      [3.1814082, 36.71074],
+      [3.181392, 36.710747],
+      [3.181371, 36.710773],
+      [3.1813731, 36.710793],
+      [3.181392, 36.710804],
+      [3.1814759, 36.71085],
+      [3.1814923, 36.710854],
+      [3.1815085, 36.71085],
+      [3.1815367, 36.710823],
+      [3.1815367, 36.710808],
+      [3.1815133, 36.710785],
+      [3.181527, 36.71076]
+    ],
+    [
+      [3.1853948, 36.71325],
+      [3.18538, 36.713257],
+      [3.1853447, 36.713257],
+      [3.1853223, 36.71325],
+      [3.185324, 36.713078],
+      [3.1853423, 36.713062],
+      [3.185381, 36.713062],
+      [3.1854, 36.713074],
+      [3.1853948, 36.71325]
+    ],
+    [
+      [3.1786213, 36.71462],
+      [3.1788046, 36.71477],
+      [3.1791406, 36.715034],
+      [3.1795535, 36.714535],
+      [3.1788297, 36.714306],
+      [3.1786213, 36.71462]
+    ]
+  ],
+  "bbox": [3.171785, 36.705517, 3.1891353, 36.718987]
+}

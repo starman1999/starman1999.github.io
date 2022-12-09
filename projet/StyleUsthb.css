@@ -1,0 +1,69 @@
+  *, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Roboto, 'Arial', 'Helvetica';
+  }
+
+
+
+  .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .title {
+    color: white;
+    font-size: 30px;
+  }
+
+  .text {
+    color: lavender;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  #location_name {
+    color: lavender;
+  }
+
+
+  .btn-group  {
+    background-color: #0d3044; /* Green background */
+    border: 1px solid rgb(106, 154, 209); /* Green border */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+  }
+  
+  .btn{
+    border-radius: 4px;
+    padding: 5px 8px;
+    border-width: 0px;
+    background-color: rgb(221, 221, 255);
+ 
+  }
+
+  .btn-selected {
+    border-radius: 4px;
+    padding: 5px 8px;
+    border-width: 0px;
+    background-color: #396a9b;
+  }
+  /* Add a background color on hover */
+  .btn:hover {
+    background-color: #396a9b;
+  }
+
+
+  #tooltip {
+    text-align: left;
+    padding: 16px;
+    background-color: rgb(142, 161, 177);
+    border: 1px solid black;
+    width: auto;
+    opacity: 0;
+    color: black;
+    position: absolute;
+  }
+
+
+  
+

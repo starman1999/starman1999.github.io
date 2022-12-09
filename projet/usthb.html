@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title> USTHB MAP</title>  
+		<script type="text/javascript" src="../../d3.v3.js"></script>
+		<script type="text/javascript" src="../../d3.v4.min.js"></script>
+		<link rel="stylesheet" href="StyleUsthb.css">
+		
+	</head>
+	<body style="background-color: #071426;">
+		<script type="text/javascript" src="usthb.js"></script>	</body>
+
+		
+		<h3 class="title"> "Université des Sciences et Techniques Houari Boumediene" </h3>
+
+		<section class="section">
+
+			<div id="basicZoom" class="map">
+				<svg id="svg"></svg>
+
+				<div id="tooltip">
+					Location: <span id="name" class="info"></span><br> 
+					Time: <span id="time" class="info"></span><br>
+					Subject: <span id="subject" class="info"></span><br> 
+					Prof: <span id="prof" class="info"></span><br>  
+					Group: <span id="group" class="info"></span><br>  
+				  </div>
+				
+			</div>
+			
+
+			<div class="menu">
+
+			
+				<div class="infos"> 
+					<button id="resetButton"> reset zoom </button>
+				</div>
+
+				<div class="controls">
+					<h3 class="text"> l’occupation des salles par les étudiants IV :</h3>
+					
+					
+					
+					<div class="btn-group ">
+						<h3 class="text"> Master 1 </h3>
+						<button id="m1" class="btn"  > M1 </button>
+						<button id="m2" class="btn"> M2 </button>
+					</div>
+
+
+					<div class="btn-group ">
+						<h3 class="text"> Semestre 2 </h3>
+						<button  id="s1" class="btn"> S1 </button>
+						<button  id="s2" class="btn"> S2 </button>
+					</div>
+
+					<div class="btn-group ">
+						<h3 class="text"> Dimanche </h3>
+						<button  id="samedi" class="btn"> Samedi </button>
+						<button  id="dimanche" class="btn"> Dimanche </button>
+						<button  id="lundi" class="btn"> Lundi </button>
+						<button  id="mardi" class="btn"> Mardi </button>
+						<button  id="mercredi" class="btn"> Mercredi </button>
+						<button  id="jeudi" class="btn"> Jeudi </button>
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+			 
+
+		</section>
+	
+</html>
