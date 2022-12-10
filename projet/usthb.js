@@ -48,6 +48,11 @@ let promise3 = new Promise ((resolve, reject) =>{
 });
 
 
+var locations = []
+var filtered_locations = []
+var m1Button
+var m2Button
+
 
 function getLocations(buttonData, unpopulate){
 
@@ -86,87 +91,177 @@ function getLocations(buttonData, unpopulate){
       
 }
 
-//handle the buttons click events
-var locations = []
-var filtered_locations = []
-function selectButton() {
-    
-    
- 
-    if(this.id == '#m1' || '#m2'){
-        buttonData = window[this.id] // get the corresponding variable bases on the button ID
-        console.log( buttonData);
-    }
+dayLocations = []
+dayLocations_ = [] //filtered
 
-    /* check if m1 button or m2 are pressed before checking s1 and s2*/
+function populateDay(btn, buttonData, dayName, unpopulate){
+    for(let semester in buttonData){
+               
+        day =  buttonData[semester].days[dayName]
 
-    
+        for(let cours in day){
+            cour = day[cours]
 
-    if(this.className == 'btn'){
+            if(unpopulate == false){
+                btn.className = 'btn-selected'
+                console.log("group1",)
+                dayLocations.push(cour.cours.loc)
 
-        this.className = 'btn-selected'
-        //populate data here
-        
-        getLocations(buttonData, false)
-        console.log(filtered_locations)
-        
-
-    }else {
-        this.className = 'btn'
-        //unpopulate data here
-        getLocations(buttonData, true)
-        console.log(filtered_locations)
-    }
+            }  else {
+                btn.className = 'btn'
+                dayLocations.splice(dayLocations.indexOf(cour.cours.loc), 1)
+            }
 
 
-       /*TODO: handle colors */
-    
-       d3.select("#svg").selectAll("path")
-       .data(json.features)  //usthb geojson DATA  
-       .attr("d", path)
-       .attr("fill" , d=>{
-   
-
-           if(d['properties'].name == "ground"){
-
-           return "#3E768C"
-           }else
-           {
-              
-                //console.log("loc", loc)
-                loc = (d['properties'].name)
-                loc2 = (d['properties'].name2)
-                if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
-                if(d['properties'].name2 != undefined) loc2 = (d['properties'].name2).toString()
+            for(let group in cour.groups){
+                let location =cour.groups[group].loc
+                //check if we need to add locations, or remove them from the list when the user unclick the button
+                if(unpopulate == false){
+                    dayLocations.push(location)
+                }  else {
+                    dayLocations.splice(dayLocations.indexOf(location), 1)
+                }
                 
+            }
+        }
+
+
+    }
+    dayLocations_ = dayLocations.filter(element => {
+        return element !== undefined;
+      }); 
+
+    console.log("dau locations",dayLocations_)
+}
+function getDayLocations(btn, buttonData, dayName, unpopulate){
+    this.className = 'btn-selected'
+    //in order to get the data of 01 day, we nned to check of m1 button is pressed , or m2 or both.
+    m1Button = document.getElementById('m1');
+    m2Button = document.getElementById('m2');
+
+    if(m1Button.className == 'btn-selected' && m2Button.className =='btn-selected'){
+        //create an array with the locations in M1 and M2 in a specific day
+        const iter =  Mbuttons.values();
+        for(let i of iter){
+            console.log(i)
+            populateDay(btn,i, dayName, unpopulate)
+        }
+        
+    }else{
+        if(m1Button.className == 'btn-selected' && m2Button.className != 'btn-selected'){
+            
+            populateDay(btn,buttonData, dayName, unpopulate)
+
+        }else{
+            if(m1Button.className != 'btn-selected' && m2Button.className == 'btn-selected'){
+                populateDay(btn,buttonData, dayName, unpopulate)
+            }else{
+                //do nothing, can't select day buttons
+            }
+        }
+    }
+}
+
+//handle the buttons click events
+
+m1Clicked = false;
+samedi = []
+buttonData = []
+Mbuttons = new Set()
+function selectButton() {
+
+ 
+    if(this.id == 'm1' || this.id == 'm2'){
+
+        buttonData = window[this.id] // get the corresponding variable bases on the button ID
+        Mbuttons.add(buttonData)
+        
+        //set days data based on the year:
+
+        samedi = buttonData[0].days.Sam
+        dimanche = buttonData[0].days.Dim
+        lundi = buttonData[0].days.Lun
+        mardi = buttonData[0].days.Mar
+        mercredi = buttonData[0].days.Mer
+        jeudi = buttonData[0].days.Jeu        
+        
+        
+
+        /* check if m1 button or m2 are pressed before checking s1 and s2*/
+
+        
+
+        if(this.className == 'btn'){
+            m1Clicked = true
+            this.className = 'btn-selected'
+            //populate data here
+            
+            getLocations(buttonData, false)
+            console.log(filtered_locations)
+            
+
+        }else {
+            m1Clicked = false
+            this.className = 'btn'
+            //unpopulate data here
+            getLocations(buttonData, true)
+            console.log(filtered_locations)
+        }
+        console.log(m1Button)
+
+
+        /*TODO: handle colors */
+        
+        d3.select("#svg").selectAll("path")
+        .data(json.features)  //usthb geojson DATA  
+        .attr("d", path)
+        .attr("fill" , d=>{
+    
+
+            if(d['properties'].name == "ground"){
+
+            return "#3E768C"
+            }else
+            {
+                
+                    //console.log("loc", loc)
+                    loc = (d['properties'].name)
+                    loc2 = (d['properties'].name2)
+                    if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
+                    if(d['properties'].name2 != undefined) loc2 = (d['properties'].name2).toString()
                     
-                    if( (filtered_locations.includes(loc) || filtered_locations.includes(loc2))  ){
+                        
+                        if( (filtered_locations.includes(loc) || filtered_locations.includes(loc2))  ){
 
-                        console.log("loc is:", loc2)
-                        console.log("the locations", filtered_locations)
-                        return "#23E87C"
-                    }else{
-                        //console.log(loc, typeof(loc))
-                        //console.log("the locations2", filtered_locations)
-                        return "#B3E0F2"
-                    }
-           }
-       })
-   
+                            //console.log("the locations", filtered_locations)
+                            return "#23E87C"
+                        }else{
+                            //console.log(loc, typeof(loc))
+                            //console.log("the locations2", filtered_locations)
+                            return "#B3E0F2"
+                        }
+            }
+        })
+    }else{ //treat days buttons
 
+        day = this.id
+        console.log("dayButtonData", day)
+        if(this.className == 'btn') getDayLocations(this, buttonData, day, false); else getDayLocations(this , buttonData, day, true)
+     
+    }
 
-    
-    
 
 }
 
+
+//fetch the data: usthb geojson, M1 and M2 respectively
 Promise.all([promise1, promise2, promise3]).then(function(data){
     json = data[0]
     //m1
     m1 = data[1]
     m2 = data[2]
 
-    d3.selectAll("#m1, #m2, #s1, #s2, #samedi, #dimanche, #lundi, #mardi, #mercredi, #jeudi").on("click", selectButton)
+    d3.selectAll("#m1, #m2, #s1, #s2, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
 
 
     
@@ -258,7 +353,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
         console.log(2 - myScale(zoom_stroke))
         if(d['properties'].name != "ground"){ //skip the ground feature
-            console.log(d['properties'].name)
+            //console.log(d['properties'].name)
             d3.select(this)
             .attr("fill", "#79BED9")
             .attr("stroke", "yellow")
