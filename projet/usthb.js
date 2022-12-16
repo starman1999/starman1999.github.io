@@ -8,7 +8,7 @@ w =  svgWidth - margin.left - margin.right
 h = svgHeight - margin.top - margin.bottom 
 
 //Define map projection
-var proj = d3.geo.mercator()
+var proj = d3.geoMercator()
             .translate([0,0])
             .scale([1]);
 
@@ -131,8 +131,15 @@ function populateDay(btn, buttonData, dayName, unpopulate){
         return element !== undefined;
       }); 
 
+    //TODO: empy filteredLocations array and fill it with day_locations here
+    filtered_locations = []
+    filtered_locations = dayLocations_
     console.log("dau locations",dayLocations_)
+    
+    highlightPlaces()
 }
+
+
 function getDayLocations(btn, buttonData, dayName, unpopulate){
     this.className = 'btn-selected'
     //in order to get the data of 01 day, we nned to check of m1 button is pressed , or m2 or both.
@@ -143,7 +150,7 @@ function getDayLocations(btn, buttonData, dayName, unpopulate){
         //create an array with the locations in M1 and M2 in a specific day
         const iter =  Mbuttons.values();
         for(let i of iter){
-            console.log(i)
+            console.log("locations of both m1 and m2 are:",i)
             populateDay(btn,i, dayName, unpopulate)
         }
         
@@ -157,6 +164,7 @@ function getDayLocations(btn, buttonData, dayName, unpopulate){
                 populateDay(btn,buttonData, dayName, unpopulate)
             }else{
                 //do nothing, can't select day buttons
+                alert("veuillez sélectionner au moin un semestre.")
             }
         }
     }
@@ -168,9 +176,10 @@ m1Clicked = false;
 samedi = []
 buttonData = []
 Mbuttons = new Set()
+
+
 function selectButton() {
 
- 
     if(this.id == 'm1' || this.id == 'm2'){
 
         buttonData = window[this.id] // get the corresponding variable bases on the button ID
@@ -212,7 +221,21 @@ function selectButton() {
 
         /*TODO: handle colors */
         
-        d3.select("#svg").selectAll("path")
+        highlightPlaces()
+    }else{ //treat days buttons
+
+        dayName = this.id
+        console.log("dayButtonData", dayName)
+        if(this.className == 'btn') getDayLocations(this, buttonData, dayName, false); else getDayLocations(this , buttonData, dayName, true)
+     
+    }
+
+
+}
+
+function highlightPlaces(){
+
+    d3.select("#svg").selectAll("path")
         .data(json.features)  //usthb geojson DATA  
         .attr("d", path)
         .attr("fill" , d=>{
@@ -220,18 +243,18 @@ function selectButton() {
 
             if(d['properties'].name == "ground"){
 
-            return "#3E768C"
+            return "#396a9b"
             }else
             {
                 
                     //console.log("loc", loc)
                     loc = (d['properties'].name)
-                    loc2 = (d['properties'].name2)
+                    loc_floor2 = (d['properties'].name2)
                     if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
-                    if(d['properties'].name2 != undefined) loc2 = (d['properties'].name2).toString()
+                    if(d['properties'].name2 != undefined) loc_floor2 = (d['properties'].name2).toString()
                     
                         
-                        if( (filtered_locations.includes(loc) || filtered_locations.includes(loc2))  ){
+                        if( (filtered_locations.includes(loc) || filtered_locations.includes(loc_floor2))  ){
 
                             //console.log("the locations", filtered_locations)
                             return "#23E87C"
@@ -242,16 +265,9 @@ function selectButton() {
                         }
             }
         })
-    }else{ //treat days buttons
-
-        day = this.id
-        console.log("dayButtonData", day)
-        if(this.className == 'btn') getDayLocations(this, buttonData, day, false); else getDayLocations(this , buttonData, day, true)
-     
-    }
-
-
 }
+
+
 
 
 //fetch the data: usthb geojson, M1 and M2 respectively
@@ -271,9 +287,28 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     var zoom = d3.zoom()
     .scaleExtent([0.8, 70]).on("zoom", function () {
 
-        svg.attr("transform", d3.event.transform)
+        svg
+        .attr("transform", d3.event.transform)
         zoom_stroke = d3.event.transform.k; //for the stroke width to be proportional with the zoom level
     });
+
+    function reset() {
+        svg.transition()
+        .duration(750)
+        .call(zoom.scaleTo, 2)
+
+      }
+
+
+      console.log("data is:", data[0])
+
+      function random() { //this function will be ued to switch betweeen points animation on button click
+        const [x, y] = data[Math.floor(Math.random() * data.length)];
+        svg.transition().duration(2500).call(
+          zoom.transform,
+          d3.zoomIdentity.translate(w / 2, h / 2).scale(40).translate(-x, -y)
+        );
+      }
 
 
 
@@ -292,14 +327,8 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     .attr("class", "svgText")
 
         //reset the zoom when choosing another schedule/ pressing the button
-        d3.select("#resetButton").on("click", function(){ 
+        d3.select("#resetButton").on("click", reset)
 
-            svg.transition()
-            .duration(750)
-            .call(zoom.transform, d3.zoomIdentity);
-           
-        })
-    
         
 
        
@@ -315,6 +344,13 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
     var z = d3.behavior.zoom() 
+    
+    updatePaths(svg)
+
+});
+
+function updatePaths(svg){
+
 
     svg.selectAll("path")
     .data(json.features)  //usthb geojson DATA  
@@ -329,10 +365,10 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     .attr("fill" ,d =>{
 
         if(d['properties'].name == "ground"){
-        return "#3E768C"
+        return "#396a9b"
         }else
         {
-            if( locations.includes( d['properties'].name )){
+            if( filtered_locations.includes( d['properties'].name )){
                 console.log("checking the locations array...")
                 return "#23E87C"
             }else{
@@ -341,8 +377,6 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             }
         
         }
-
-
     })
 
     .on("mouseover", function(d){
@@ -371,7 +405,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         }
 
             // TOOLTIP 
-            d3.select('#name').text(d.properties.name);
+            d3.select('#name').text(d.properties.name2);
 
             //todo: generalize this line to print the corresponding time, prof, group
             d3.select('#time').text(m1[0].days.Dim[0].groups.G1.Time);
@@ -404,24 +438,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     })
     .append('title').text(d => d['properties'].name)
 
-
-    /*d3.select("#m2").on("click", function(){
-        
-        d3.selectAll(this).style("fill", "red");
-        console.log("hi")
-    
-    
-    });*/
-
-    
-    function test() {
-        
-    }
-    
-
-
-});
-
+}
 
 
 

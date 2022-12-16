@@ -10,12 +10,12 @@
     grid-template-columns: 1fr 1fr;
   }
   .title {
-    color: white;
+    color:  rgb(78, 78, 78);;
     font-size: 30px;
   }
 
   .text {
-    color: lavender;
+    color: rgb(78, 78, 78);
     font-size: 20px;
     font-weight: bold;
   }
@@ -24,31 +24,43 @@
     color: lavender;
   }
 
-
+  
   .btn-group  {
-    background-color: #0d3044; /* Green background */
-    border: 1px solid rgb(106, 154, 209); /* Green border */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
+    background: #E6E6FA;
+    padding: 10px;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(163, 177, 198, 0.8), -2px -2px 5px rgba(255, 255, 255, 0.8);
+    outline: none;
+    border-radius: 10px;
+    margin: 10px;
+    float: left;
   }
   
   .btn{
-    border-radius: 4px;
-    padding: 5px 8px;
-    border-width: 0px;
-    background-color: rgb(221, 221, 255);
+    
+    background: #E6E6FA;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 5px 5px 10px rgba(163,177,198,0.5), -5px -5px 10px rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 10px;
  
   }
 
   .btn-selected {
-    border-radius: 4px;
-    padding: 5px 8px;
-    border-width: 0px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 16px;
     background-color: #396a9b;
   }
   /* Add a background color on hover */
   .btn:hover {
+    color: white;
     background-color: #396a9b;
   }
 
