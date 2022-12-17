@@ -110,11 +110,13 @@ function populateDay(btn, buttonData, dayName, unpopulate){
             }  else {
                 btn.className = 'btn'
                 dayLocations.splice(dayLocations.indexOf(cour.cours.loc), 1)
+
+                //TDOO: maintain previous m1, m2 data when the user unclick the day button
             }
 
 
             for(let group in cour.groups){
-                let location =cour.groups[group].loc
+                let location = cour.groups[group].loc
                 //check if we need to add locations, or remove them from the list when the user unclick the button
                 if(unpopulate == false){
                     dayLocations.push(location)
@@ -127,21 +129,23 @@ function populateDay(btn, buttonData, dayName, unpopulate){
 
 
     }
+
     dayLocations_ = dayLocations.filter(element => {
         return element !== undefined;
       }); 
 
     //TODO: empy filteredLocations array and fill it with day_locations here
-    filtered_locations = []
-    filtered_locations = dayLocations_
-    console.log("dau locations",dayLocations_)
-    
-    highlightPlaces()
+    /*filtered_locations = []
+    filtered_locations = dayLocations_*/
+    console.log("locations",filtered_locations)
+
+    highlightPlaces(dayLocations_)
 }
 
 
 function getDayLocations(btn, buttonData, dayName, unpopulate){
-    this.className = 'btn-selected'
+
+    //this.className = 'btn-selected'
     //in order to get the data of 01 day, we nned to check of m1 button is pressed , or m2 or both.
     m1Button = document.getElementById('m1');
     m2Button = document.getElementById('m2');
@@ -176,6 +180,7 @@ m1Clicked = false;
 samedi = []
 buttonData = []
 Mbuttons = new Set()
+
 
 
 function selectButton() {
@@ -216,24 +221,41 @@ function selectButton() {
             getLocations(buttonData, true)
             console.log(filtered_locations)
         }
-        console.log(m1Button)
 
 
         /*TODO: handle colors */
         
-        highlightPlaces()
+        highlightPlaces(filtered_locations)
     }else{ //treat days buttons
 
         dayName = this.id
         console.log("dayButtonData", dayName)
-        if(this.className == 'btn') getDayLocations(this, buttonData, dayName, false); else getDayLocations(this , buttonData, dayName, true)
+        if(this.className == 'btn'){
+            getDayLocations(this, buttonData, dayName, false)
+        }  else {
+            
+
+            samediButton = document.getElementById('Sam');
+            dimancheButton = document.getElementById('Dim');
+            lundiButton = document.getElementById('Lun');
+            mardiButton = document.getElementById('Mar');
+            mercrediButton = document.getElementById('Mer');
+            jeudiButton = document.getElementById('Jeu');
+
+            getDayLocations(this , buttonData, dayName, true); 
+            if(samediButton.className == "btn" && dimancheButton.className == "btn" 
+            && lundiButton.className == "btn" && mardiButton.className == "btn" && mercrediButton.className == "btn"  && mercrediButton.className == "btn" ){
+                console.log("the freaking locations are:", filtered_locations)
+                highlightPlaces(filtered_locations)
+            }
+        }
      
     }
 
 
 }
 
-function highlightPlaces(){
+function highlightPlaces(filtered_locations){
 
     d3.select("#svg").selectAll("path")
         .data(json.features)  //usthb geojson DATA  
