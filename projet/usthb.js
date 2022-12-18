@@ -10,7 +10,9 @@ h = svgHeight - margin.top - margin.bottom
 //Define map projection
 var proj = d3.geoMercator()
             .translate([0,0])
-            .scale([1]);
+            .scale([1])
+            .rotate([30,32])
+
 
 //Define path generator
 var path = d3.geo.path()
@@ -62,12 +64,14 @@ function getLocations(buttonData, unpopulate){
             for(let cours in buttonData[semester].days[day]){
 
                 cour = buttonData[semester].days[day][cours]
+                //if the user click or unclick the M1 or M2 button:
                 if(unpopulate == false){
                     locations.push(cour.cours.loc)
                 }  else {
                     locations.splice(locations.indexOf(cour.cours.loc), 1)
                 }
 
+                //the locations exists also in "groups"
                 for(let group in buttonData[semester].days[day][cours].groups){
                     let location = buttonData[semester].days[day][cours].groups[group].loc
 
@@ -137,7 +141,8 @@ function populateDay(btn, buttonData, dayName, unpopulate){
     //TODO: empy filteredLocations array and fill it with day_locations here
     /*filtered_locations = []
     filtered_locations = dayLocations_*/
-    console.log("locations",filtered_locations)
+    console.log("locations: ",filtered_locations)
+    console.log("day locations: ", dayLocations_)
 
     highlightPlaces(dayLocations_)
 }
@@ -176,14 +181,21 @@ function getDayLocations(btn, buttonData, dayName, unpopulate){
 
 //handle the buttons click events
 
-m1Clicked = false;
 samedi = []
 buttonData = []
 Mbuttons = new Set()
 
 
-
 function selectButton() {
+
+    samediButton = document.getElementById('Sam');
+    dimancheButton = document.getElementById('Dim');
+    lundiButton = document.getElementById('Lun');
+    mardiButton = document.getElementById('Mar');
+    mercrediButton = document.getElementById('Mer');
+    jeudiButton = document.getElementById('Jeu');
+
+ 
 
     if(this.id == 'm1' || this.id == 'm2'){
 
@@ -203,29 +215,28 @@ function selectButton() {
 
         /* check if m1 button or m2 are pressed before checking s1 and s2*/
 
-        
-
         if(this.className == 'btn'){
-            m1Clicked = true
             this.className = 'btn-selected'
             //populate data here
             
             getLocations(buttonData, false)
-            console.log(filtered_locations)
+            console.log("filtered_locations: ",filtered_locations)
             
 
         }else {
-            m1Clicked = false
+            if(samediButton.className == "btn" && dimancheButton.className == "btn" 
+            && lundiButton.className == "btn" && mardiButton.className == "btn" && mercrediButton.className == "btn"  && mercrediButton.className == "btn" ){
             this.className = 'btn'
             //unpopulate data here
             getLocations(buttonData, true)
-            console.log(filtered_locations)
+            console.log("filtered_locations: ",filtered_locations)
+            }
         }
 
 
         /*TODO: handle colors */
-        
         highlightPlaces(filtered_locations)
+
     }else{ //treat days buttons
 
         dayName = this.id
@@ -235,19 +246,18 @@ function selectButton() {
         }  else {
             
 
-            samediButton = document.getElementById('Sam');
-            dimancheButton = document.getElementById('Dim');
-            lundiButton = document.getElementById('Lun');
-            mardiButton = document.getElementById('Mar');
-            mercrediButton = document.getElementById('Mer');
-            jeudiButton = document.getElementById('Jeu');
-
+            
+            // unpopulate the locations of the selected day
             getDayLocations(this , buttonData, dayName, true); 
+
+            //if all the days button are unselected, then show the locaitons of M1 or M2
             if(samediButton.className == "btn" && dimancheButton.className == "btn" 
             && lundiButton.className == "btn" && mardiButton.className == "btn" && mercrediButton.className == "btn"  && mercrediButton.className == "btn" ){
                 console.log("the freaking locations are:", filtered_locations)
                 highlightPlaces(filtered_locations)
             }
+
+
         }
      
     }
@@ -257,11 +267,20 @@ function selectButton() {
 
 function highlightPlaces(filtered_locations){
 
-    d3.select("#svg").selectAll("path")
+
+    
+  
+
+
+
+    svg = d3.select("#svg")
+    loc_paths = svg.selectAll("path")
         .data(json.features)  //usthb geojson DATA  
         .attr("d", path)
-        .attr("fill" , d=>{
-    
+        
+        .attr("fill" , (d,i)=>{
+            
+            
 
             if(d['properties'].name == "ground"){
 
@@ -269,8 +288,7 @@ function highlightPlaces(filtered_locations){
             }else
             {
                 
-                    //console.log("loc", loc)
-                    loc = (d['properties'].name)
+                loc = (d['properties'].name)
                     loc_floor2 = (d['properties'].name2)
                     if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
                     if(d['properties'].name2 != undefined) loc_floor2 = (d['properties'].name2).toString()
@@ -287,6 +305,7 @@ function highlightPlaces(filtered_locations){
                         }
             }
         })
+      
 }
 
 
@@ -306,8 +325,9 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     console.log(m2[1]);
 
 
+    
     var zoom = d3.zoom()
-    .scaleExtent([0.8, 70]).on("zoom", function () {
+    .scaleExtent([0.8, 70]).translateExtent([[0, 0], [w, h]]).on("zoom", function () {
 
         svg
         .attr("transform", d3.event.transform)
@@ -315,9 +335,10 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     });
 
     function reset() {
-        svg.transition()
-        .duration(750)
-        .call(zoom.scaleTo, 2)
+        svg.selectAll("path")
+        .transition()
+        .duration(10000)
+        .attr("transform", d3.zoomIdentity.translateBy(0, 0).scale(1));
 
       }
 
@@ -334,7 +355,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
 
-
+    zoom2 = d3.behavior.zoom() 
     var svg = d3.select("#svg")
         .attr("width",  w)
         .attr("height",  h)
@@ -349,10 +370,15 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     .attr("class", "svgText")
 
         //reset the zoom when choosing another schedule/ pressing the button
-        d3.select("#resetButton").on("click", reset)
-
-        
-
+        d3.select("#resetButton").on("click",() =>    
+        {
+      
+        d3.selectAll("path")
+        .transition()
+        .duration(500)
+        .ease(ease)
+        .call(zoom.transform,  d3.zoomIdentity.translate(0,0).scale(1))
+    })
        
 
 
@@ -369,7 +395,56 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     
     updatePaths(svg)
 
+
+
+
+
+    var pathCoord = [3.1802655553270274, 36.711436405100415];
+
+
+    ////////////////////////////// functions to handle the zoom effects
+
+    function zoomTo(location, scale){
+        //convert long lat to cartesian coordinates
+        var point = proj(location);
+        console.log("cartesian point is:", point)
+       
+        svg.selectAll("path")
+        .transition()
+        .duration(1000)
+        .attr("transform", transform(point, scale))
+        .on("end", zoomOut);	//when the trasition ends
+    }
+    
+    function zoomOut(){
+        svg.selectAll("path")
+        .transition()
+        .duration(5000)
+        .attr("transform", "translate(0,0) scale(1)");
+    }
+    
+    
+    
+    function transform(point, scale){
+        //Calculations determin middle of map then subtract x and y offset
+        var px = w/2 - point[0] * scale;
+        var py = h/2 - point[1] * scale;
+        return transformStrBuilder(px, py, scale);
+    }
+    
+    function transformStrBuilder(px, py, scale){
+        return "translate("+px+","+py+") scale("+scale+")";
+    }
+
+
+    d3.select("#next").on("click", () => zoomTo(pathCoord, 10))
+
+
+
+
+
 });
+
 
 function updatePaths(svg){
 
@@ -383,8 +458,11 @@ function updatePaths(svg){
     .style('stroke-width', '0.2px')
     .attr("stroke", "#3E768C")
 
-    .attr('transform', 'translate(250,-210)rotate(35)')
+    .attr('transform', 'translate(0,0)')
     .attr("fill" ,d =>{
+
+        let centroid = path.centroid(d.geometry); //centroid of all paths, will be used later to zoom to specefic places
+        console.log(centroid)
 
         if(d['properties'].name == "ground"){
         return "#396a9b"
@@ -394,7 +472,6 @@ function updatePaths(svg){
                 console.log("checking the locations array...")
                 return "#23E87C"
             }else{
-                console.log("array doesn't include this")
                 return "#B3E0F2"
             }
         
@@ -461,6 +538,10 @@ function updatePaths(svg){
     .append('title').text(d => d['properties'].name)
 
 }
+
+
+   
+
 
 
 
