@@ -27,14 +27,14 @@ var zoom_stroke = 2;
 
 let promise1 = new Promise ((resolve, reject) =>{ 
 
-     d3.json('usthbBrut2.geojson', usthbData => {
+     d3.json('projet/usthbBrut2.geojson', usthbData => {
         if(usthbData != null){ resolve(usthbData) }else{ reject(usthbData) }
     })
 });
 
 
 let promise2 = new Promise ((resolve, reject) =>{  //read the schedule data of m2 s1
-    d3.json('M1.json', data => {
+    d3.json('projet/M1.json', data => {
         if(data != null){ resolve(data) }else{ reject(data) }
     });
 
@@ -43,7 +43,7 @@ let promise2 = new Promise ((resolve, reject) =>{  //read the schedule data of m
 
 
 let promise3 = new Promise ((resolve, reject) =>{ 
-    d3.json('M2.json', data => {
+    d3.json('projet/M2.json', data => {
         if(data != null){ resolve(data) }else{ reject(data) }
     })
 });
