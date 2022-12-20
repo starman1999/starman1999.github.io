@@ -24,6 +24,11 @@
     color: lavender;
   }
 
+  .controls {
+    display: flex;
+    flex-direction: column;
+    float: left;
+  }
   
   .btn-group  {
     background: #E6E6FA;
@@ -33,7 +38,11 @@
     outline: none;
     border-radius: 10px;
     margin: 10px;
+    display:flex;
+    flex-direction: column;
     float: left;
+    width: fit-content;
+
   }
   
   .btn{
@@ -45,7 +54,7 @@
     box-shadow: 5px 5px 10px rgba(163,177,198,0.5), -5px -5px 10px rgba(255, 255, 255, 0.6);
     cursor: pointer;
     border-radius: 15px;
-    margin-left: 10px;
+    margin: 7px;
  
   }
 

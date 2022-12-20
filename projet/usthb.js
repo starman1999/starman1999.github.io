@@ -163,6 +163,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         console.log("day locations: ", dayLocations_)
     
         highlightPlaces(dayLocations_)
+        
     }
     
     
@@ -224,7 +225,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             
             
 
-            /* check if m1 button or m2 are pressed before checking s1 and s2*/
+            /* check if m1 button or m2 are pressed */
 
             if(this.className == 'btn'){
                 this.className = 'btn-selected'
@@ -232,22 +233,25 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 
                 getLocations(buttonData, false)
                 console.log("filtered_locations: ",filtered_locations)
-                
+                highlightPlaces(filtered_locations)
+                navigate("forward")
 
             }else {
                 if(samediButton.className == "btn" && dimancheButton.className == "btn" 
                 && lundiButton.className == "btn" && mardiButton.className == "btn" && mercrediButton.className == "btn"  && mercrediButton.className == "btn" ){
                 this.className = 'btn'
+
                 //unpopulate data here
                 getLocations(buttonData, true)
+                /*TODO: handle colors */
+                highlightPlaces(filtered_locations)
+                navigate("forward")
                 console.log("filtered_locations: ",filtered_locations)
                 }
             }
 
 
-            /*TODO: handle colors */
             
-            highlightPlaces(filtered_locations)
 
         }else{ //treat days buttons
 
@@ -267,6 +271,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 && lundiButton.className == "btn" && mardiButton.className == "btn" && mercrediButton.className == "btn"  && mercrediButton.className == "btn" ){
                     console.log("the freaking locations are:", filtered_locations)
                     highlightPlaces(filtered_locations)
+                    navigate("forward")
                 }
 
 
@@ -309,20 +314,23 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                                 //centroid of all paths, will be used later to zoom to specefic places
                                 centroid = path.centroid(d.geometry); 
                                 console.log("centorid of located path: ", centroid)
-                                centroids.push(centroid)
+                                centroids.push([centroid, loc])
 
                                 //console.log("the locations", filtered_locations)
-                                return "#23E87C"
+                                return "#01FA4A" //orange color
                             }else{
                                 //console.log(loc, typeof(loc))
                                 //console.log("the locations2", filtered_locations)
                                 return "#B3E0F2"
                             }
                 }
+               
             })
+            
 
             console.log("ALL centroids: ", centroids)
-            navigate("forward")
+            
+           
     }
 
 
@@ -343,13 +351,13 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     
     const zoom = d3.zoom()
-    .on("zoom", zoomed);
+    .scaleExtent([1, 10]).translateExtent([[-100, -100], [1000, 900]]).on("zoom", zoomed);
 
 
     function zoomed() {
         
         svg.selectAll("path").attr("transform", d3.event.transform);
-        console.log(d3.event.transform)
+        //console.log(d3.event.transform)
       }
     
 
@@ -366,11 +374,12 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
     var svg = d3.select("#svg")
+    
         .attr("width",  w)
         .attr("height",  h)
         .style('stroke-width', '0.2px')
         .attr("stroke", "#3E768C")
-        .style("background-color", "lavender")
+        .style("background-color", "#B3E0F2")
         .call(zoom)
         .append("g");
     
@@ -379,6 +388,12 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         .attr("x", 80)
         .attr("y", 80)
         .attr("class", "svgText")
+
+        d3.select("#svg")
+        .append("button")
+        .text("wiggle")
+        .attr("float", "left")
+        .on("click", zoomOut);
 
         //reset the zoom when choosing another schedule/ pressing the button
         d3.select("#resetButton").on("click",zoomOut)
@@ -402,12 +417,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     function zoomTo(point, scale){
         //convert long lat to cartesian coordinates
-        //console.log("cartesian point is:", point)
-       
+        console.log("cartesian point is:", point)
         svg.transition().duration(2500).call(
             zoom.transform,
             d3.zoomIdentity.translate(w / 2 -point[0]*scale , h / 2 -point[1]*scale ).scale(scale)
-          ).on("end", zoomOut)
+          )
     }
     
     function zoomOut(){
@@ -435,17 +449,36 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     d3.select("#next").on("click", () => navigate("forward")) 
     d3.select("#previous").on("click", ()=> navigate("backwards")) 
 
-     function navigate(direction){
+
+
+
+    function navigate(direction){
         
         if(direction == "forward") {
             centroidsIndex++; 
             if(centroidsIndex > centroids.length-1) centroidsIndex = 0 
-            zoomTo(centroids[centroidsIndex], 10); 
+            
+            
         }else{
             centroidsIndex--
             if(centroidsIndex <= 0) centroidsIndex = centroids.length-1
-            zoomTo(centroids[centroidsIndex], 10); 
-        } 
+            zoomTo(centroids[centroidsIndex][0], 10); 
+        }
+
+        if(centroids != null){
+            zoomTo(centroids[centroidsIndex][0], 10); 
+
+
+            svg.selectAll("path")                
+            .attr("stroke" , (d,i)=>{
+                
+                if(d['properties'].name == centroids[centroidsIndex][1]){
+                    return "yellow" //green color
+                }
+
+            })
+            .style("stroke-width", (d) => {if(d['properties'].name == centroids[centroidsIndex][1]){ return "0.3px" }})
+        }
         
         
     }
@@ -492,9 +525,9 @@ function updatePaths(svg){
         if(d['properties'].name != "ground"){ //skip the ground feature
             //console.log(d['properties'].name)
             d3.select(this)
-            .attr("fill", "#79BED9")
+            //.attr("fill", "#79BED9")
             .attr("stroke", "yellow")
-            .style('stroke-width', ( 2 - myScale(zoom_stroke))); //keep the stroke width proportional with the zoom level
+            .style('stroke-width', "0.5px"); //keep the stroke width proportional with the zoom level
 
 
             if(d['properties'].name != ""){
@@ -528,7 +561,7 @@ function updatePaths(svg){
 
             if(d['properties'].name != "ground"){
             d3.select(this)
-            .attr("fill", "#B3E0F1")
+            //.attr("fill", "#B3E0F1")
             .style('stroke-width', '0.2px')
             .attr("stroke", "#3E768C")
             }

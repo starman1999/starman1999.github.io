@@ -13,12 +13,20 @@
 		<script type="text/javascript" src="usthb.js"></script>	</body>
 
 		
-		<h3 class="title"> "Université des Sciences et Techniques Houari Boumediene" </h3>
+		<!--<h3 class="title"> "Université des Sciences et Techniques Houari Boumediene" </h3> -->
 
 		<section class="section">
 
 			<div id="basicZoom" class="map">
-				<svg id="svg"></svg>
+				<svg id="svg">
+					<foreignObject x="20" y="20" width="160" height="160">
+						<!--
+						  In the context of SVG embedded in an HTML document, the XHTML
+						  namespace could be omitted, but it is mandatory in the
+						  context of an SVG document
+						-->
+					  </foreignObject>
+				</svg>
 
 				<div id="tooltip">
 					Location: <span id="name" class="info"></span><br> 
@@ -49,7 +57,7 @@
 					
 					
 					<div class="btn-group ">
-						<button id="m1" type="radio" class="btn"  > M1 </button>
+						<button id="m1"  class="btn"  > M1 </button>
 						<button id="m2" class="btn"> M2 </button>
 
 						
