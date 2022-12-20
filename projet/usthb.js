@@ -235,6 +235,7 @@ function selectButton() {
 
 
         /*TODO: handle colors */
+        
         highlightPlaces(filtered_locations)
 
     }else{ //treat days buttons
@@ -265,13 +266,11 @@ function selectButton() {
 
 }
 
+centroids = []
 function highlightPlaces(filtered_locations){
 
-
     
-  
-
-
+    centroids = [] //reinitialize the centroids array each time we highlite new places to navigate to
 
     svg = d3.select("#svg")
     loc_paths = svg.selectAll("path")
@@ -296,6 +295,11 @@ function highlightPlaces(filtered_locations){
                         
                         if( (filtered_locations.includes(loc) || filtered_locations.includes(loc_floor2))  ){
 
+                            //centroid of all paths, will be used later to zoom to specefic places
+                            centroid = path.centroid(d.geometry); 
+                            console.log("centorid of located path: ", centroid)
+                            centroids.push(centroid)
+
                             //console.log("the locations", filtered_locations)
                             return "#23E87C"
                         }else{
@@ -305,6 +309,8 @@ function highlightPlaces(filtered_locations){
                         }
             }
         })
+
+        console.log("ALL centroids: ", centroids)
       
 }
 
@@ -319,46 +325,40 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     m2 = data[2]
 
     d3.selectAll("#m1, #m2, #s1, #s2, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
-
-
+    
     
     console.log(m2[1]);
 
 
     
-    var zoom = d3.zoom()
-    .scaleExtent([0.8, 70]).translateExtent([[0, 0], [w, h]]).on("zoom", function () {
+    const zoom = d3.zoom()
+    .on("zoom", zoomed);
 
-        svg
-        .attr("transform", d3.event.transform)
-        zoom_stroke = d3.event.transform.k; //for the stroke width to be proportional with the zoom level
-    });
+
+    function zoomed() {
+        
+        svg.selectAll("path").attr("transform", d3.event.transform);
+        console.log(d3.event.transform)
+      }
+    
 
     function reset() {
-        svg.selectAll("path")
-        .transition()
-        .duration(10000)
-        .attr("transform", d3.zoomIdentity.translateBy(0, 0).scale(1));
-
-      }
-
-
-      console.log("data is:", data[0])
-
-      function random() { //this function will be ued to switch betweeen points animation on button click
-        const [x, y] = data[Math.floor(Math.random() * data.length)];
-        svg.transition().duration(2500).call(
+        
+        svg.transition().duration(750).call(
           zoom.transform,
-          d3.zoomIdentity.translate(w / 2, h / 2).scale(40).translate(-x, -y)
+          d3.zoomIdentity.translate(w / 2, h / 2).scale(1),
+          d3.pointer
         );
       }
 
+   
 
 
-    zoom2 = d3.behavior.zoom() 
     var svg = d3.select("#svg")
         .attr("width",  w)
         .attr("height",  h)
+        .style('stroke-width', '0.2px')
+        .attr("stroke", "#3E768C")
         .style("background-color", "lavender")
         .call(zoom)
         .append("g");
@@ -370,15 +370,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     .attr("class", "svgText")
 
         //reset the zoom when choosing another schedule/ pressing the button
-        d3.select("#resetButton").on("click",() =>    
-        {
-      
-        d3.selectAll("path")
-        .transition()
-        .duration(500)
-        .ease(ease)
-        .call(zoom.transform,  d3.zoomIdentity.translate(0,0).scale(1))
-    })
+        d3.select("#resetButton").on("click",zoomOut)
        
 
 
@@ -392,34 +384,32 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
     var z = d3.behavior.zoom() 
-    
     updatePaths(svg)
+    
 
 
 
 
 
-    var pathCoord = [3.1802655553270274, 36.711436405100415];
+    var pathCoord = [425.74443011106644, 323.2951876201998];
 
 
     ////////////////////////////// functions to handle the zoom effects
 
-    function zoomTo(location, scale){
+    function zoomTo(point, scale){
         //convert long lat to cartesian coordinates
-        var point = proj(location);
-        console.log("cartesian point is:", point)
+        //console.log("cartesian point is:", point)
        
-        svg.selectAll("path")
-        .transition()
-        .duration(1000)
-        .attr("transform", transform(point, scale))
-        .on("end", zoomOut);	//when the trasition ends
+        svg.transition().duration(2500).call(
+            zoom.transform,
+            d3.zoomIdentity.translate(w / 2 -point[0]*scale , h / 2 -point[1]*scale ).scale(scale)
+          ).on("end", zoomOut)
     }
     
     function zoomOut(){
         svg.selectAll("path")
         .transition()
-        .duration(5000)
+        .duration(2000)
         .attr("transform", "translate(0,0) scale(1)");
     }
     
@@ -436,14 +426,18 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         return "translate("+px+","+py+") scale("+scale+")";
     }
 
+    centroidsIndex = 0
 
-    d3.select("#next").on("click", () => zoomTo(pathCoord, 10))
+    d3.select("#next").on("click", navigate)
 
-
-
-
+     function navigate(){
+        zoomTo(centroids[centroidsIndex], 10); 
+        centroidsIndex++
+        if(centroidsIndex > centroids.length-1) centroidsIndex = 0
+    }
 
 });
+
 
 
 function updatePaths(svg){
@@ -461,19 +455,15 @@ function updatePaths(svg){
     .attr('transform', 'translate(0,0)')
     .attr("fill" ,d =>{
 
-        let centroid = path.centroid(d.geometry); //centroid of all paths, will be used later to zoom to specefic places
-        console.log(centroid)
+        
+        //console.log("centroid:",centroid)
 
         if(d['properties'].name == "ground"){
+            
         return "#396a9b"
         }else
         {
-            if( filtered_locations.includes( d['properties'].name )){
-                console.log("checking the locations array...")
-                return "#23E87C"
-            }else{
-                return "#B3E0F2"
-            }
+            return "#B3E0F2"
         
         }
     })
@@ -537,6 +527,8 @@ function updatePaths(svg){
     })
     .append('title').text(d => d['properties'].name)
 
+
+    
 }
 
 
