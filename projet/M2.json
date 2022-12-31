@@ -47,7 +47,7 @@
             "Time": "13:00 - 14:30",
             "Subject": "Visualisation de Données",
             "loc": "TP128",
-            "prof": ""
+            "prof": "DELLOUL"
           },
           "G2": {
             "Time": "13:00 - 14:30",
@@ -64,7 +64,7 @@
             "Time": "14:40 - 16:10",
             "Subject": "Visualisation de Données",
             "loc": "TP130",
-            "prof": "no name"
+            "prof": "DELLOUL"
           }
         }
       }
@@ -170,7 +170,7 @@
             "Time": "13:00 - 14:30",
             "Subject": "PROG RES",
             "loc": "TP.C6",
-            "prof": "no name"
+            "prof": "BOUACHI"
           }
         }
       },
@@ -187,7 +187,7 @@
             "Time": "14:40 - 16:10",
             "Subject": "PROG RES",
             "loc": "TP.C6",
-            "prof": "no name"
+            "prof": "BOUACHI"
           }
         }
       }
@@ -235,7 +235,7 @@
             "Time": "13:00 - 14:30",
             "Subject": "TH JEU",
             "loc": "TP.C5",
-            "prof": ""
+            "prof": "SAHNOUNE"
           },
           "G2": {
             "Time": "13:00 - 14:30",
@@ -252,7 +252,7 @@
             "Time": "14:40 - 16:10",
             "Subject": "TH JEU",
             "loc": "TP.C3A",
-            "prof": "no name"
+            "prof": "SAHNOUNE"
           }
         }
       }

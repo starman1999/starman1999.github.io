@@ -7,6 +7,9 @@
 		<script type="text/javascript" src="d3.v4.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/d3-transition@3"></script>
 		<link rel="stylesheet" href="projet/StyleUsthb.css">
+		<link rel = "icon" type = "image/png" href = "/favicon.png">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
 		
 	</head>
 	<body style="background-color: #E6E6FA;">
@@ -17,8 +20,8 @@
 
 		<section class="section">
 
-			<div id="basicZoom" class="map">
-				<svg id="svg">
+			<div class="map">
+				<svg id="svg" class="svg">
 				
 				</svg>
 
@@ -30,9 +33,16 @@
 					Group: <span id="group" class="info"></span><br>  
 				</div>
 
-				<button class="btn" id="previous"> previous </button>
+				<div>
+					<button class="btn" id="previous"> previous </button>
 
-				<button class="btn" id="next"> next </button>
+					<button class="btn"  id="next"> next </button>
+				 
+					<button class="btn"  id="resetButton"> reset zoom </button>
+
+				</div>
+
+			
 			
 				
 			</div>
@@ -41,18 +51,16 @@
 			<div class="menu">
 
 			
-				<div class="infos"> 
-					<button class="btn" id="resetButton"> reset zoom </button>
-				</div>
+				
 
 				<div class="controls">
-					<h3 class="text"> l’occupation des salles par les étudiants IV :</h3>
+					<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
 					
 					
-					
+					<label class="text"> <b> étudiants </b> :</label>
 					<div class="btn-group ">
-						<button id="m1"  class="btn"  > M1 </button>
-						<button id="m2" class="btn"> M2 </button>
+						<button id="m1"  class="btn"  > Master 01 </button>
+						<button id="m2" class="btn"> Master 02 </button>
 
 						
 					</div>
@@ -63,7 +71,9 @@
 						<button  id="s2" class="btn"> S2 </button>
 					</div>
 					-->
+
 					<div class="btn-group ">
+
 						<button  id="Sam" class="btn"> Samedi </button>
 						<button  id="Dim" class="btn"> Dimanche </button>
 						<button  id="Lun" class="btn"> Lundi </button>
@@ -73,9 +83,34 @@
 						
 					</div>
 
-					
+				</div>
+				<div class="vl"></div>
 
+				
+
+				<div class="controls">
+					<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
 					
+					<label class="text">  <b>Enseignants</b> :</label>
+					<div class="btn-group ">
+						<button id="m1_profs"  class="btn"  > Master 01 </button>
+						<button id="m2_profs" class="btn"> Master 02 </button>
+
+						
+					</div>
+
+					<!-- 
+					<div class="btn-group "> 
+						<button  id="s1" class="btn"> S1 </button>
+						<button  id="s2" class="btn"> S2 </button>
+					</div>
+					-->
+
+					<select id="dropdown">
+						<option value="Aucun"> Aucun</option>
+					</select>
+					  
+					  <p id="selected-dropdown"> veuillez sélectionner un enseignant.</p>
 
 				</div>
 

@@ -1,7 +1,7 @@
 
 //Width and height
-var svgWidth = 900;
-var svgHeight = 600;
+var svgWidth = 700;
+var svgHeight = 400;
 
 margin = { "top": 25, "right": 25, "bottom": 50, "left": 50}
 w =  svgWidth - margin.left - margin.right
@@ -11,7 +11,7 @@ h = svgHeight - margin.top - margin.bottom
 var proj = d3.geoMercator()
             .translate([0,0])
             .scale([1])
-            .rotate([30,32])
+            .rotate([10,41])
 
 
 //Define path generator
@@ -49,6 +49,9 @@ let promise3 = new Promise ((resolve, reject) =>{
 });
 
 var locations = []
+var profs = []
+var unique_profs = []
+var filtered_profs =[]
 var filtered_locations = []
 var m1Button
 var m2Button
@@ -86,19 +89,27 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     //if the user click or unclick the M1 or M2 button:
                     if(unpopulate == false){
                         locations.push(cour.cours.loc)
+                        profs.push([cour.cours.prof, cour.cours.loc])
+                        //TODO: push profs in another array here with their locations
                     }  else {
                         locations.splice(locations.indexOf(cour.cours.loc), 1)
+                        profs.splice(profs.indexOf([cour.cours.prof, cour.cours.loc]), 1)
+
                     }
     
                     //the locations exists also in "groups"
                     for(let group in buttonData[semester].days[day][cours].groups){
                         let location = buttonData[semester].days[day][cours].groups[group].loc
+                        let prof =  buttonData[semester].days[day][cours].groups[group].prof
     
                         //check if we need to add locations, or remove them from the list when the user unclick the button
                         if(unpopulate == false){
                             locations.push(location)
+                            profs.push([prof, location])
+
                         }  else {
                              locations.splice(locations.indexOf(location), 1)
+                             profs.splice(profs.indexOf([prof, location]), 1)
                         }
                         
                     }
@@ -111,6 +122,27 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
           filtered_locations = locations.filter(element => {
             return element !== undefined;
           }); 
+
+          filtered_profs = profs.filter(element => {
+            if(element[0] != undefined) return element
+          });
+
+        
+        for(i=0; i< filtered_profs.length; i++){
+            if(!unique_profs.includes(filtered_profs[i][0])){
+
+                unique_profs.push(filtered_profs[i][0])
+
+                d3.select("#dropdown")
+                .append("option")
+                .attr("id", filtered_profs[i][0])   
+                .text(filtered_profs[i][0])
+            }
+            
+        }
+        
+  
+
           
     }
     
@@ -163,6 +195,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         console.log("day locations: ", dayLocations_)
     
         highlightPlaces(dayLocations_)
+
         
     }
     
@@ -209,7 +242,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     
 
-        if(this.id == 'm1' || this.id == 'm2'){
+        if(this.id == 'm1' || this.id == 'm2' || this.id == 'm1_profs' || this.id == 'm2_profs'){
 
             buttonData = window[this.id] // get the corresponding variable bases on the button ID
             Mbuttons.add(buttonData)
@@ -233,8 +266,13 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 
                 getLocations(buttonData, false)
                 console.log("filtered_locations: ",filtered_locations)
-                highlightPlaces(filtered_locations)
-                navigate("forward")
+                console.log("profs: ", filtered_profs)
+
+                if(this.id == "m1" || this.id == "m2"){
+                    highlightPlaces(filtered_locations)
+                    navigate("forward")
+                }
+                
 
             }else {
                 if(samediButton.className == "btn" && dimancheButton.className == "btn" 
@@ -247,6 +285,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 highlightPlaces(filtered_locations)
                 navigate("forward")
                 console.log("filtered_locations: ",filtered_locations)
+                console.log("profs:", filtered_profs)
                 }
             }
 
@@ -284,7 +323,6 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     
     function highlightPlaces(filtered_locations){
-
     
         centroids = [] //reinitialize the centroids array each time we highlite new places to navigate to
 
@@ -313,11 +351,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
                                 //centroid of all paths, will be used later to zoom to specefic places
                                 centroid = path.centroid(d.geometry); 
-                                console.log("centorid of located path: ", centroid)
+                                //console.log("centorid of located path: ", centroid)
                                 centroids.push([centroid, loc])
 
                                 //console.log("the locations", filtered_locations)
-                                return "#01FA4A" //orange color
+                                return "#01FA4A"
                             }else{
                                 //console.log(loc, typeof(loc))
                                 //console.log("the locations2", filtered_locations)
@@ -330,8 +368,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
             console.log("ALL centroids: ", centroids)
             
-           
     }
+
+
+
+
 
 
 
@@ -343,8 +384,39 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     m1 = data[1]
     m2 = data[2]
 
-    d3.selectAll("#m1, #m2, #s1, #s2, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
-    
+    m1_profs = data[1]
+    m2_profs = data[2]
+
+
+
+    d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+
+    //profs drowpdown selection
+    d3.select("select")
+    .on("change",function(d){
+        prof_locs = []
+        var selected = d3.select("#dropdown").node().value;
+        console.log( selected );
+        for(let prof of filtered_profs){
+            if(prof[0] == selected){
+                console.log(prof[0],"enseigne dans : ", prof[1])
+                prof_locs.push(prof[1])
+            }
+        }
+        if(selected != "Aucun"){
+            d3.select("#selected-dropdown").text(selected+" enseigne dans les salles: " + prof_locs);
+            
+            highlightPlaces(prof_locs)
+            navigate("forward")
+        }
+        
+        else{
+            d3.select("#selected-dropdown").text("veuillez sélectionner un enseignant.");
+        }
+        
+
+    })
+
     
 
 
@@ -379,21 +451,26 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         .attr("height",  h)
         .style('stroke-width', '0.2px')
         .attr("stroke", "#3E768C")
-        .style("background-color", "#B3E0F2")
         .call(zoom)
         .append("g");
     
+        svg.append("circle")
+        .attr("cx", w/2)
+        .attr("cy", h/2)
+        .style("fill", "#B3E0F2")
+        .style("stroke-width", 0)
+        .attr("r", "370px")
+
         svg.append("text")
         .text("current place name")
-        .attr("x", 80)
-        .attr("y", 80)
-        .attr("class", "svgText")
+        .attr("x", 20)
+        .attr("y", 50)
+        .attr("id", "svg-text")
+        .raise()
 
-        d3.select("#svg")
-        .append("button")
-        .text("wiggle")
-        .attr("float", "left")
-        .on("click", zoomOut);
+        svg.selectAll("#svg-text").attr("class", "svg-text")
+
+
 
         //reset the zoom when choosing another schedule/ pressing the button
         d3.select("#resetButton").on("click",zoomOut)
@@ -430,6 +507,9 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         .duration(2000)
         .attr("transform", "translate(0,0) scale(1)");
     }
+
+
+
     
     
     
@@ -473,11 +553,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             .attr("stroke" , (d,i)=>{
                 
                 if(d['properties'].name == centroids[centroidsIndex][1]){
-                    return "yellow" //green color
+                    return "yellow" 
                 }
 
             })
-            .style("stroke-width", (d) => {if(d['properties'].name == centroids[centroidsIndex][1]){ return "0.3px" }})
+            .style("stroke-width", (d) => {if(d['properties'].name == centroids[centroidsIndex][1]){ return "0.15px" }})
         }
         
         
@@ -488,6 +568,8 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
 function updatePaths(svg){
+
+
 
 
     svg.selectAll("path")
@@ -517,6 +599,7 @@ function updatePaths(svg){
 
     .on("mouseover", function(d){
         
+        
         let myScale = d3.scaleLinear()
                 .domain([0, 71])
                 .range([0, 2]);
@@ -527,7 +610,8 @@ function updatePaths(svg){
             d3.select(this)
             //.attr("fill", "#79BED9")
             .attr("stroke", "yellow")
-            .style('stroke-width', "0.5px"); //keep the stroke width proportional with the zoom level
+            .style('stroke-width', "0.15px") //keep the stroke width proportional with the zoom level
+            .style('cursor', "pointer")
 
 
             if(d['properties'].name != ""){
@@ -573,6 +657,8 @@ function updatePaths(svg){
         
     })
     .append('title').text(d => d['properties'].name)
+
+
 
 
     

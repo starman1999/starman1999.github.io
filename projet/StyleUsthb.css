@@ -6,16 +6,27 @@
 
 
   .section {
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
+  .map{
+    position: relative;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    align-content: center;
+
+  }
+
+
   .title {
     color:  rgb(78, 78, 78);;
     font-size: 30px;
   }
 
   .text {
-    color: rgb(78, 78, 78);
+    color: rgb(99, 99, 99);
     font-size: 20px;
     font-weight: bold;
   }
@@ -32,46 +43,75 @@
   
   .btn-group  {
     background: #E6E6FA;
-    padding: 10px;
+    box-shadow: 1.5px 2px 5px rgba(154, 154, 154, 0.8);
+
     border: none;
-    box-shadow: 2px 2px 5px rgba(163, 177, 198, 0.8), -2px -2px 5px rgba(250, 250, 250, 0.8);
     outline: none;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 5px;
+    margin: 7px 0;
     display:flex;
     flex-direction: column;
     float: left;
-    width: fit-content;
+    width: 5rem;
 
   }
-  
+
   .btn{
     
     background: #E6E6FA;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    box-shadow: 5px 5px 10px rgba(163,177,198,0.5), -5px -5px 10px rgba(255, 255, 255, 0.6);
+    padding: 8px 0px;
+    font-size: 13px;
     cursor: pointer;
-    border-radius: 15px;
-    margin: 7px;
+    border-radius: 20px;
+    margin: 2px 1px;
  
   }
 
   .btn-selected {
-    border: none;
+    background: #396a9b;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
-    border-radius: 30px;
-    font-size: 16px;
-    background-color: #396a9b;
+    border: none;
+    padding: 8px 0px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 2px 1px;
   }
   /* Add a background color on hover */
   .btn:hover {
     color: white;
     background-color: #396a9b;
   }
+
+
+  #resetButton {
+    margin-left: 5rem;
+  }
+  #resetButton:hover, #next:hover, #previous:hover{
+    background-color: #E6E6FA;
+    color: rgb(31, 56, 126);
+    font-weight: bold;
+  }
+
+  #resetButton::before {
+    font-family: fontAwesome;
+    content: "\f002";
+    color: #396a9b;
+  }
+
+  #next::before {
+    font-family: fontAwesome;
+    content: "\f138";
+    color: #396a9b;
+  }
+
+  #previous::before {
+    font-family: fontAwesome;
+    content: "\f137";
+    color: #396a9b;
+  }
+
 
 
   #tooltip {
@@ -85,6 +125,40 @@
     position: absolute;
   }
 
+  .menu{
+    display: flex;
+    flex-direction: row;
+  }
 
+  .vl {
+    border-left: 2px solid rgb(202, 202, 202);
+    height: 900px;
+    margin: 0 1rem;
+  }
+
+  .svg-text {
+    position: fixed;
+    fill: #3E768C;
+    font-weight: 500;
+    z-index: -9;
+    
+  }
+
+
+  /*DROP DOWN SECTION*/
+
+  select {
+    outline: none;
+    border: none;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+    background: #E6E6FA;
+    box-shadow: 1.5px 2px 5px rgba(154, 154, 154, 0.8);
+  }
   
+  select:hover {
+
+    background: #dbdbe1;
+  }
 
