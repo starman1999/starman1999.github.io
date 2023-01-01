@@ -454,12 +454,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         .call(zoom)
         .append("g");
     
-        svg.append("circle")
-        .attr("cx", w/2)
-        .attr("cy", h/2)
-        .style("fill", "#B3E0F2")
-        .style("stroke-width", 0)
-        .attr("r", "370px")
+
 
         svg.append("text")
         .text("current place name")
