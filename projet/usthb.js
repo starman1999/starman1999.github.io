@@ -88,27 +88,30 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     cour = buttonData[semester].days[day][cours]
                     //if the user click or unclick the M1 or M2 button:
                     if(unpopulate == false){
-                        locations.push(cour.cours.loc)
+                        locations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time])
                         profs.push([cour.cours.prof, cour.cours.loc])
                         //TODO: push profs in another array here with their locations
                     }  else {
-                        locations.splice(locations.indexOf(cour.cours.loc), 1)
+                        locations.splice(locations.indexOf([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time]), 1)
                         profs.splice(profs.indexOf([cour.cours.prof, cour.cours.loc]), 1)
 
                     }
     
                     //the locations exists also in "groups"
                     for(let group in buttonData[semester].days[day][cours].groups){
+
                         let location = buttonData[semester].days[day][cours].groups[group].loc
                         let prof =  buttonData[semester].days[day][cours].groups[group].prof
+                        let Subject = buttonData[semester].days[day][cours].groups[group].Subject
+                        let Time =  buttonData[semester].days[day][cours].groups[group].Time
     
                         //check if we need to add locations, or remove them from the list when the user unclick the button
                         if(unpopulate == false){
-                            locations.push(location)
+                            locations.push([location, prof, Subject, Time])
                             profs.push([prof, location])
 
                         }  else {
-                             locations.splice(locations.indexOf(location), 1)
+                             locations.splice(locations.indexOf([location, prof, Subject, Time]), 1)
                              profs.splice(profs.indexOf([prof, location]), 1)
                         }
                         
@@ -120,7 +123,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     
         //the set function considers "undefined" as a value, so we remove it.
           filtered_locations = locations.filter(element => {
-            return element !== undefined;
+            return element[0] !== undefined;
           }); 
 
           filtered_profs = profs.filter(element => {
@@ -128,15 +131,15 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
           });
 
         
-        for(i=0; i< filtered_profs.length; i++){
-            if(!unique_profs.includes(filtered_profs[i][0])){
+        for(i=0; i< filtered_locations.length; i++){
+            if(!unique_profs.includes(filtered_locations[i][1])){
 
-                unique_profs.push(filtered_profs[i][0])
+                unique_profs.push(filtered_locations[i][1])
 
                 d3.select("#dropdown")
                 .append("option")
-                .attr("id", filtered_profs[i][0])   
-                .text(filtered_profs[i][0])
+                .attr("id", filtered_locations[i][1])   
+                .text(filtered_locations[i][1])
             }
             
         }
@@ -159,23 +162,27 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 if(unpopulate == false){
                     btn.className = 'btn-selected'
                     console.log("group1",)
-                    dayLocations.push(cour.cours.loc)
+                    dayLocations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time])
     
                 }  else {
                     btn.className = 'btn'
-                    dayLocations.splice(dayLocations.indexOf(cour.cours.loc), 1)
-    
+                    dayLocations.splice(locations.indexOf([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time]), 1)
                     //TDOO: maintain previous m1, m2 data when the user unclick the day button
                 }
     
     
                 for(let group in cour.groups){
                     let location = cour.groups[group].loc
+                    let prof = cour.groups[group].prof
+                    let Subject = cour.groups[group].Subject
+                    let Time = cour.groups[group].Time
                     //check if we need to add locations, or remove them from the list when the user unclick the button
                     if(unpopulate == false){
-                        dayLocations.push(location)
+                        dayLocations.push([location, prof, Subject, Timed])
                     }  else {
-                        dayLocations.splice(dayLocations.indexOf(location), 1)
+                        //dayLocations.splice(dayLocations.indexOf(location), 1)
+                        dayLocations.splice(locations.indexOf([location, prof, Subject, Time]), 1)
+                        
                     }
                     
                 }
@@ -185,8 +192,8 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         }
     
         dayLocations_ = dayLocations.filter(element => {
-            return element !== undefined;
-          }); 
+            if(element[0] != undefined) return element
+          });
     
         //TODO: empy filteredLocations array and fill it with day_locations here
         /*filtered_locations = []
@@ -321,7 +328,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     }
 
-    
+    green = "#01FA4A"
     function highlightPlaces(filtered_locations){
     
         centroids = [] //reinitialize the centroids array each time we highlite new places to navigate to
@@ -333,40 +340,37 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             
             .attr("fill" , (d,i)=>{
                 
-                
-
                 if(d['properties'].name == "ground"){
 
                 return "#396a9b"
                 }else
                 {
-                    
                     loc = (d['properties'].name)
-                        loc_floor2 = (d['properties'].name2)
-                        if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
-                        if(d['properties'].name2 != undefined) loc_floor2 = (d['properties'].name2).toString()
+                    loc_floor2 = (d['properties'].name2)
+                    
+                    if(d['properties'].name != undefined) loc = (d['properties'].name).toString()
+                    if(d['properties'].name2 != undefined) loc_floor2 = (d['properties'].name2).toString()
+                    
                         
+                        if( ((filtered_locations.some( a => a.includes(loc)) && loc!= null) || (filtered_locations.some( a => a.includes(loc_floor2))&& loc_floor2!= null) )  ){
+
+                            //centroid of all paths, will be used later to zoom to specefic places
+                            centroid = path.centroid(d.geometry); 
+                            //console.log("centorid of located path: ", centroid)
+                            centroids.push([centroid, loc])
+
+                            //console.log("the locations", filtered_locations)
                             
-                            if( (filtered_locations.includes(loc) || filtered_locations.includes(loc_floor2))  ){
-
-                                //centroid of all paths, will be used later to zoom to specefic places
-                                centroid = path.centroid(d.geometry); 
-                                //console.log("centorid of located path: ", centroid)
-                                centroids.push([centroid, loc])
-
-                                //console.log("the locations", filtered_locations)
-                                return "#01FA4A"
-                            }else{
-                                //console.log(loc, typeof(loc))
-                                //console.log("the locations2", filtered_locations)
-                                return "#B3E0F2"
-                            }
+                            return green
+                        }else{
+                            //console.log(loc, typeof(loc))
+                            //console.log("the locations2", filtered_locations)
+                            return "#B3E0F2"
+                        }
                 }
                
             })
             
-
-            console.log("ALL centroids: ", centroids)
             
     }
 
@@ -397,15 +401,15 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         prof_locs = []
         var selected = d3.select("#dropdown").node().value;
         console.log( selected );
-        for(let prof of filtered_profs){
-            if(prof[0] == selected){
-                console.log(prof[0],"enseigne dans : ", prof[1])
-                prof_locs.push(prof[1])
+        for(let prof of filtered_locations){
+            if(prof[1] == selected){
+                console.log(prof[1],"enseigne dans : ", prof[0])
+                prof_locs.push([prof[0], prof[1]])
             }
         }
         if(selected != "Aucun"){
             d3.select("#selected-dropdown").text(selected+" enseigne dans les salles: " + prof_locs);
-            
+            console.log(prof_locs);
             highlightPlaces(prof_locs)
             navigate("forward")
         }
@@ -413,11 +417,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         else{
             d3.select("#selected-dropdown").text("veuillez sélectionner un enseignant.");
         }
-        
-
     })
 
-    
+    //select and update informations when user clicks on path
+
+
 
 
 
@@ -635,6 +639,24 @@ function updatePaths(svg){
               .style('display', 'block')
               .style('opacity', 0.8)
         
+    })
+    .on("click", function(d){
+        if(d['properties'].name != undefined)  loc = (d['properties'].name).toString()
+        if(d['properties'].name2 != undefined)  loc_floor2 = (d['properties'].name2).toString()
+
+ 
+        for(i of filtered_locations){
+            if(i.includes(loc) || i.includes(loc_floor2)){
+           
+                console.log(i[0], i[1], i[2], i[3], i[4])
+                d3.select("#salle").transition().duration(10000).text("Salle: " + i[0])
+                d3.select("#enseignant").transition().duration(10000).text("Enseignant: " + i[1]).transition().duration(7500)
+                d3.select("#matiere").transition().duration(10000).text("Matière: " + i[2]).transition().duration(7500)
+                d3.select("#horaire").text("Horaire: " + i[3]).transition().duration(7500)
+                d3.select("#groupe").text("Groupe: " + i[4]).transition().duration(7500)
+            }   
+        }
+       
     })
     .on("mouseout", function(d){
 

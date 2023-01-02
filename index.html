@@ -7,118 +7,165 @@
 		<script type="text/javascript" src="d3.v4.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/d3-transition@3"></script>
 		<link rel="stylesheet" href="projet/StyleUsthb.css">
-		<link rel = "icon" type = "image/png" href = "/favicon.png">
+		<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
 		
 	</head>
 	<body style="background-color: #E6E6FA;">
-		<script type="text/javascript" src="projet/usthb.js"></script>	
+		<script type="text/javascript" src="projet/usthb.js"></script>
+
 
 		
-		<!--<h3 class="title"> "Université des Sciences et Techniques Houari Boumediene" </h3> -->
+		
+
 
 		<section class="section">
 
-			<div class="map">
-				<svg id="svg" class="svg">
-				
-				</svg>
-
-				<div id="tooltip">
-					Location: <span id="name" class="info"></span><br> 
-					Time: <span id="time" class="info"></span><br>
-					Subject: <span id="subject" class="info"></span><br> 
-					Prof: <span id="prof" class="info"></span><br>  
-					Group: <span id="group" class="info"></span><br>  
-				</div>
-
-				<div>
-					<button class="btn" id="previous"> previous </button>
-
-					<button class="btn"  id="next"> next </button>
-				 
-					<button class="btn"  id="resetButton"> reset zoom </button>
-
+				<!--<h3 class="title"> "Université des Sciences et Techniques Houari Boumediene" </h3> -->
+			<div class="sidebar active">
+						
+				<div class="logo">
+					<img src="https://image-parcours.copainsdavant.com/image/750/1122508433/4180179.png" alt="">
 				</div>
 
 			
+			 	
+			     	<label class="nav-text">  occupations des étudiants du master :</label>
+			 		<div class="controls">
+						<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
+						
+						
+						<div class="btn-group ">
+							<button id="m1"  class="btn"  > M1 </button>
+							<button id="m2" class="btn"> M2 </button>
+	
+							
+						</div>
+	
+	
+						<div class="btn-group ">
+	
+							<button  id="Sam" class="btn"> Samedi </button>
+							<button  id="Dim" class="btn"> Dimanche </button>
+
+							
+						</div>
+						<div class="btn-group ">
+	
+
+							<button  id="Lun" class="btn"> Lundi </button>
+							<button  id="Mar" class="btn"> Mardi </button>
+
+							
+						</div>
+						<div class="btn-group ">
+	
+							<button  id="Mer" class="btn"> Mercredi </button>
+							<button  id="Jeu" class="btn"> Jeudi </button>
+							
+						</div>
+	
+					</div>
+					
+					
+	
+					
+					<label class="nav-text"> Enseignants : </label>
+
+					<div class="controls_ens">
+						<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
+						
+						<div class="btn-group ">
+							<button id="m1_profs"  class="btn"  > M1 </button>
+							<button id="m2_profs" class="btn"> M2 </button>
+							
+						</div>
+	
+						<select class="btn-group" id="dropdown">
+							<option value="Aucun"> Aucun</option>
+						</select>
+						  
+	
+					</div>
+	
+					
+	
+				</div>
 			
-				
 			</div>
+
+			<div class="panels">
+
 			
-
-			<div class="menu">
-
-			
+				<div class="home_content">
+					<div class="text">USTHB Visualization</div>
 				
-
-				<div class="controls">
-					<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
-					
-					
-					<label class="text"> <b> étudiants </b> :</label>
-					<div class="btn-group ">
-						<button id="m1"  class="btn"  > Master 01 </button>
-						<button id="m2" class="btn"> Master 02 </button>
-
-						
-					</div>
-
-					<!-- 
-					<div class="btn-group "> 
-						<button  id="s1" class="btn"> S1 </button>
-						<button  id="s2" class="btn"> S2 </button>
-					</div>
-					-->
-
-					<div class="btn-group ">
-
-						<button  id="Sam" class="btn"> Samedi </button>
-						<button  id="Dim" class="btn"> Dimanche </button>
-						<button  id="Lun" class="btn"> Lundi </button>
-						<button  id="Mar" class="btn"> Mardi </button>
-						<button  id="Mer" class="btn"> Mercredi </button>
-						<button  id="Jeu" class="btn"> Jeudi </button>
-						
-					</div>
-
-				</div>
-				<div class="vl"></div>
-
+					<p class="about">- vous pouvez visualiser l'occupations des
+						 étudiants du <b> M1 et M2  </b>choisissant l'année(s) d'abord puis les jours.
+						 <br><br>- la visualisation des locaux utilisés par les enseignants ce fait de la même manière.
+					</p>
 				
-
-				<div class="controls">
-					<!-- <h3 class="text"> l’occupation des salles par les étudiants IV :</h3>-->	
-					
-					<label class="text">  <b>Enseignants</b> :</label>
-					<div class="btn-group ">
-						<button id="m1_profs"  class="btn"  > Master 01 </button>
-						<button id="m2_profs" class="btn"> Master 02 </button>
-
-						
-					</div>
-
-					<!-- 
-					<div class="btn-group "> 
-						<button  id="s1" class="btn"> S1 </button>
-						<button  id="s2" class="btn"> S2 </button>
-					</div>
-					-->
-
-					<select id="dropdown">
-						<option value="Aucun"> Aucun</option>
-					</select>
-					  
-					  <p id="selected-dropdown"> veuillez sélectionner un enseignant.</p>
-
 				</div>
 
+				<div class="home_content">
+					<div class="text">Information</div>
 				
-
+					<p class="about" id="salle"> Salle:
+				    </p>
+					<p class="about" id="enseignant"> Enseignant: 
+				    </p>
+					<p class="about" id="matiere"> <b>Matière: </b>
+				    </p>
+					<p class="about" id="horaire"> Horaire: 
+				    </p>
+					<p class="about" id="groupe"> Groupe: 
+				    </p>
+				
+				</div>
 			</div>
-			 
+		
+				
+
+
+
+				<div class="map">
+					<div class="svg-div">
+						<svg id="svg" class="svg">
+					
+						</svg>
+					</div>
+					
+
+					<div id="tooltip">
+						Location: <span id="name" class="info"></span><br> 
+						Time: <span id="time" class="info"></span><br>
+						Subject: <span id="subject" class="info"></span><br> 
+						Prof: <span id="prof" class="info"></span><br>  
+						Group: <span id="group" class="info"></span><br>  
+					</div>
+
+					<div>
+						<button class="btn" id="previous"> previous </button>
+
+						<button class="btn"  id="next"> next </button>
+					
+						<button class="btn"  id="resetButton"> reset zoom </button>
+
+					</div>
+
+				
+				
+					
+				</div>
+				
+
+			
+				<div class="bg-shape">
+				</div>
 
 		</section>
+
+		
 	</body>
 </html>
