@@ -88,11 +88,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     cour = buttonData[semester].days[day][cours]
                     //if the user click or unclick the M1 or M2 button:
                     if(unpopulate == false){
-                        locations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time, "toute la section"])
+                        locations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time, "toute la section", day])
                         profs.push([cour.cours.prof, cour.cours.loc])
                         //TODO: push profs in another array here with their locations
                     }  else {
-                        locations.splice(locations.indexOf([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time, "toute la section"]), 1)
+                        locations.splice(locations.indexOf([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time, "toute la section", day]), 1)
                         profs.splice(profs.indexOf([cour.cours.prof, cour.cours.loc]), 1)
 
                     }
@@ -107,11 +107,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     
                         //check if we need to add locations, or remove them from the list when the user unclick the button
                         if(unpopulate == false){
-                            locations.push([location, prof, Subject, Time, group])
+                            locations.push([location, prof, Subject, Time, group, day])
                             profs.push([prof, location])
 
                         }  else {
-                             locations.splice(locations.indexOf([location, prof, Subject, Time, group]), 1)
+                             locations.splice(locations.indexOf([location, prof, Subject, Time, group, day]), 1)
                              profs.splice(profs.indexOf([prof, location]), 1)
                         }
                         
@@ -178,10 +178,10 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     let Time = cour.groups[group].Time
                     //check if we need to add locations, or remove them from the list when the user unclick the button
                     if(unpopulate == false){
-                        dayLocations.push([location, prof, Subject, Time])
+                        dayLocations.push([location, prof, Subject, Time, day])
                     }  else {
                         //dayLocations.splice(dayLocations.indexOf(location), 1)
-                        dayLocations.splice(locations.indexOf([location, prof, Subject, Time]), 1)
+                        dayLocations.splice(locations.indexOf([location, prof, Subject, Time, day]), 1)
                         
                     }
                     
@@ -353,17 +353,34 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     green = "#01FA4A"
     skyBlue = "#B3E0F2"
+    clickedList = []
     function highlightPlaces(filtered_locations){
     
         centroids = [] //reinitialize the centroids array each time we highlite new places to navigate to
 
         svg = d3.select("#svg")
-        var svgNode = svg[1];
-        console.log("sbgNode",svgNode)
+       
+
         loc_paths = svg.selectAll("path")
             .data(json.features)  //usthb geojson DATA  
             .attr("d", path)
-            .on("click", (d) => updateInfos(d))
+            .on("click", (d, i, nodes) => {
+                selectedPath = d3.select(nodes[i])
+
+                if(clickedList.includes( d['properties'].name)){ //unselect a location
+                    selectedPath.classed("selected-path", false)
+                    updateInfos(d, false)
+                    clickedList.splice(clickedList.indexOf(d['properties'].name), 1)
+                    
+                }else{ //Select a location
+
+                    selectedPath.classed("selected-path", true)
+                    updateInfos(d, true)
+                    clickedList.push(d['properties'].name)
+                    
+                }
+          
+            })
             .attr("id", function(d,i){ return "_" + i; } )
             .attr("fill" , (d,i)=>{
                 
@@ -626,42 +643,62 @@ function showSlides(n) {
 }
 
 
-function updateInfos (d){
+function updateInfos (d, clickState){
     ///TODO remove all elements in the slideshow here
-    
+    console.log(clickState)
     
     if(d['properties'].name != undefined)  loc = (d['properties'].name).toString()
     if(d['properties'].name2 != undefined)  loc_floor2 = (d['properties'].name2).toString()
-    let uniqueLocations = new Set()
 
-    if(loc != undefined) uniqueLocations.add(loc)
-    if(loc_floor2 != undefined) uniqueLocations.add(loc_floor2)
+    if(clickState == true){
+        for(i of filtered_locations){
+            if(i.includes(loc) || i.includes(loc_floor2)){
+           
+                let divs = d3.select(".slideshow-container")
+                .append("div")
+                .attr("id", "_"+i[1]+i[4])
+                .attr("class", "mySlides")
+    
+                divs.append("p").attr("id", "salle").text("Salle: "+ i[0])
+    
+                divs.append("p").attr("id", "enseignant").text("Enseignant: "+ i[1])
+    
+                divs.append("p").attr("id", "matiere").text("Matière: "+ i[2])
+    
+                divs.append("p").attr("id", "time").text("Horaire: "+ i[3])
+    
+                divs.append("p").attr("id", "groupe").text("Groupe: "+ i[4])
+                divs.append("p").attr("id", "dat").text("jour: "+ i[5]).attr("class","colored-text")
+    
+                var dot_div = d3.select(".dot-container")
+                dot_div.append("span").attr("class", "dot").on("click", currentSlide(1))
+    
+                d3.select("#indication").style("visibility", "hidden")
+    
+                showSlides(1);
+            }   
+        }
+    }else{
+        //remove the informations when the user unselect a certain button
 
-    for(i of filtered_locations){
-        if(i.includes(loc) || i.includes(loc_floor2)){
-       
-            var divs = d3.select(".slideshow-container")
-            .append("div")
-            .attr("class", "mySlides")
+        for(i of filtered_locations){
+            if(i.includes(loc) || i.includes(loc_floor2)){
+           
+                let divs = d3.select(".slideshow-container")
+                console.log("#_"+i[1]+i[4])
+                toRemove = divs.select("#_"+i[1]+i[4])
 
-            divs.append("p").attr("id", "salle").text("Salle: "+ i[0])
+                var dot_div = d3.select(".dot-container")
+                dot_div.select("span").remove()
 
-            divs.append("p").attr("id", "enseignant").text("Enseignant: "+ i[1])
+                //plusSlides(1)
 
-            divs.append("p").attr("id", "matiere").text("Matière: "+ i[2])
-
-            divs.append("p").attr("id", "time").text("Horaire: "+ i[3])
-
-            divs.append("p").attr("id", "groupe").text("Groupe: "+ i[4])
-
-            var dot_div = d3.select(".dot-container")
-            dot_div.append("span").attr("class", "dot").on("click", currentSlide(1))
-
-            d3.select("#indication").style("visibility", "hidden")
-
-            showSlides(1);
-        }   
+                toRemove.remove()
+            }   
+        }
     }
+
+   
    
 }
 
@@ -708,9 +745,9 @@ function updatePaths(svg){
             d3.select(this)
             //.attr("fill", "#79BED9")
             .attr("stroke", "yellow")
+
             .style('stroke-width', "0.15px") //keep the stroke width proportional with the zoom level
             .style('cursor', "pointer")
-
 
             if(d['properties'].name != ""){
                 svg.select("text") //print the place name on the screen when hovering

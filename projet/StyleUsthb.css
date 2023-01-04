@@ -226,6 +226,13 @@
     
   }
 
+  /* section for PATHS*/
+  .selected-path {
+    fill: rgb(240, 111, 65);
+    stroke: yellow;
+  }
+
+
 
   /*DROP DOWN SECTION*/
 
@@ -549,4 +556,4 @@ ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:fir
 q {font-style: italic;}
 
 /* Add a blue color to the author */
-.author {color: cornflowerblue;}
+.colored-text {color: rgb(68, 113, 197);}
