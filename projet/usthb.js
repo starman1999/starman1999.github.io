@@ -163,11 +163,19 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     btn.className = 'btn-selected'
                     console.log("group1",)
                     dayLocations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time])
-    
+
+                    for(z of clickedList){
+                        console.log("clickedList is: ", clickedList)
+
+                        console.log("removing all selections...", z)
+                        updateInfos(z[0], z[1], false)
+                    }
+
                 }  else {
                     btn.className = 'btn'
                     dayLocations.splice(locations.indexOf([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time]), 1)
                     //TDOO: maintain previous m1, m2 data when the user unclick the day button
+                  
                 }
     
     
@@ -195,11 +203,12 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             if(element[0] != undefined) return element
           });
     
+          
         //TODO: empy filteredLocations array and fill it with day_locations here
         /*filtered_locations = []
         filtered_locations = dayLocations_*/
-        console.log("locations: ",filtered_locations)
-        console.log("day locations: ", dayLocations_)
+        //console.log("locations: ",filtered_locations)
+       // console.log("day locations: ", dayLocations_)
     
         highlightPlaces(dayLocations_)
 
@@ -365,19 +374,25 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
             .data(json.features)  //usthb geojson DATA  
             .attr("d", path)
             .on("click", (d, i, nodes) => {
+                console.log("احح")
                 selectedPath = d3.select(nodes[i])
+                loc = (d['properties'].name).toString()
+                loc2 = d['properties'].name2
+                if(d['properties'].name2 != undefined) loc2 = (d['properties'].name2).toString()
+                
 
-                if(clickedList.includes( d['properties'].name)){ //unselect a location
+                if(clickedList.some( t => t.includes (loc)) && clickedList.some(t => t.includes(loc2)) ){ //unselect a location
                     selectedPath.classed("selected-path", false)
-                    updateInfos(d, false)
-                    clickedList.splice(clickedList.indexOf(d['properties'].name), 1)
+                    updateInfos(loc, loc2, false)
+                    clickedList.splice(clickedList.indexOf([loc, loc2]), 1)
                     
                 }else{ //Select a location
 
-                    selectedPath.classed("selected-path", true)
-                    updateInfos(d, true)
-                    clickedList.push(d['properties'].name)
-                    
+                    selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
+                    console.log("hh1:", loc)
+                    updateInfos(loc, loc2, true)
+                    clickedList.push([loc,  loc2])
+                    console.log(clickedList)
                 }
           
             })
@@ -485,14 +500,6 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
       }
     
 
-    function reset() {
-        
-        svg.transition().duration(750).call(
-          zoom.transform,
-          d3.zoomIdentity.translate(w / 2, h / 2).scale(1),
-          d3.pointer
-        );
-      }
 
    
 
@@ -525,7 +532,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
 
     var b = path.bounds(json);
-    console.log(b);
+
     s = .99 / Math.max( (b[1][0] - b[0][0]) / w , (b[1][1] - b[0][1]) / h ); 
     t = [ (w - s * (b[1][0] +b[0][0])) / 2 , (h - s * (b[1][1]+b[0][1])) / 2 ];
     //sconsole.log(s,t);
@@ -589,11 +596,11 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
         }else{
             centroidsIndex--
             if(centroidsIndex <= 0) centroidsIndex = centroids.length-1
-            zoomTo(centroids[centroidsIndex][0], 10); 
+            zoomTo(centroids[centroidsIndex][0], 25); 
         }
 
         if(centroids != null){
-            zoomTo(centroids[centroidsIndex][0], 10); 
+            zoomTo(centroids[centroidsIndex][0], 25); 
 
 
             svg.selectAll("path")                
@@ -643,20 +650,26 @@ function showSlides(n) {
 }
 
 
-function updateInfos (d, clickState){
+function updateInfos (locationName1, locationName2, clickState){
     ///TODO remove all elements in the slideshow here
-    console.log(clickState)
     
-    if(d['properties'].name != undefined)  loc = (d['properties'].name).toString()
-    if(d['properties'].name2 != undefined)  loc_floor2 = (d['properties'].name2).toString()
+    console.log(clickState)
+    if(locationName1 != undefined) loc = locationName1
+    if(locationName2 != undefined) loc_floor2 = locationName2
+
 
     if(clickState == true){
         for(i of filtered_locations){
             if(i.includes(loc) || i.includes(loc_floor2)){
-           
+
+                //this is to create a unique ID for the Div, so we can dynamically remove it
+                horaire = i[3]
+                horaire = horaire.replace(/\s+/g, '');
+                horaire = horaire.replace(/:/g, '');
+                
                 let divs = d3.select(".slideshow-container")
                 .append("div")
-                .attr("id", "_"+i[1]+i[4])
+                .attr("id", "_"+i[0]+i[1]+horaire)
                 .attr("class", "mySlides")
     
                 divs.append("p").attr("id", "salle").text("Salle: "+ i[0])
@@ -685,8 +698,17 @@ function updateInfos (d, clickState){
             if(i.includes(loc) || i.includes(loc_floor2)){
            
                 let divs = d3.select(".slideshow-container")
-                console.log("#_"+i[1]+i[4])
-                toRemove = divs.select("#_"+i[1]+i[4])
+                
+                //this is to create a unique ID for the Div, so we can dynamically remove it
+                horaire = i[3]
+                horaire = horaire.replace(/\s+/g, '');
+                horaire = horaire.replace(/:/g, '');
+                console.log(horaire)
+                console.log("#_"+i[0]+i[1]+horaire)
+
+
+
+                toRemove = divs.select("#_"+i[0]+i[1]+ horaire)
 
                 var dot_div = d3.select(".dot-container")
                 dot_div.select("span").remove()
@@ -694,7 +716,10 @@ function updateInfos (d, clickState){
                 //plusSlides(1)
 
                 toRemove.remove()
-            }   
+
+                selectedPath = d3.select("#_"+loc)
+                selectedPath.classed("selected-path", false)
+            }
         }
     }
 
@@ -722,7 +747,7 @@ function updatePaths(svg){
         
         //console.log("centroid:",centroid)
 
-        if(d['properties'].name == "ground"){
+        if(d.properties.name == "ground"){
             
         return "#396a9b"
         }else
