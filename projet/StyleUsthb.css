@@ -55,16 +55,26 @@
   }
 
   .text {
-    color: lavender;
+    color: var(--light-black);
     font-size: 10px;
-    font-family: "Poppins" , sans-serif;
+    font-family: "Roboto" , sans-serif;
     font-weight: bold;
+
+  }
+
+  .small-txt {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    opacity: 80%;
+    padding-top: -50px;
+    margin-top: -50px;
   }
   .nav-text {
     display: block;
-    color: lavender;
+    color: var(--light-black);
     font-size: 14px;
-    font-family: "Poppins" , sans-serif;
+    font-weight: 600;
+    font-family: "Roboto" , sans-serif;
   }
 
   #location_name {
@@ -247,12 +257,12 @@
 
 
   /* Google Font CDN Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Roboto" , sans-serif;
 }
 :root{
     --black-color:#121a3e;
@@ -277,7 +287,8 @@ body{
   left:0;
   height:100%;
   width:90px;
-  background:var(--black-color);
+  background: #E6E6FA;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
   padding:6px 14px;
   z-index:99;
   transition:all 0.5s ease;
@@ -423,8 +434,9 @@ body{
   margin-right: 2rem;
   background:var(--sky-color);
   padding:20px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.10);
   width:50%;
+  height: fit-content;
   left:240px;
 }
 .panels {
@@ -437,12 +449,104 @@ body{
   font-size: 25px;
   font-weight: 600;
   color:var(--light-black);
-  margin-bottom:15px;
 }
 .home_content p{
   margin-bottom:15px;
+}
+ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:first-child) {
+  border-top: 10px solid red;
+  margin-top: 12px;
+  padding-top: 12px;
 }
   
 .about {
   width: 20rem;
 }
+
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: #E6E6FA;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  text-align: left;
+  margin-left: 3rem;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+
+  width: 2rem;
+  margin-top: 50%vh;
+  padding: 5px;
+  color: rgb(73, 107, 171);
+  font-weight: bold;
+  font-size: 20px;
+  user-select: none;
+
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+
+  color: rgba(6, 12, 98, 0.8);
+  border-radius: 50px;
+  font-weight: bold;
+
+}
+#previous_info::before {
+  font-family: fontAwesome;
+  font-size: 16px;
+  content: "\f137";
+  color: #396a9b;
+}#next_info::before {
+  font-family: fontAwesome;
+  font-size: 16px;
+  content: "\f138";
+  color: #396a9b;
+}
+
+
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 10px;
+
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #71aec6;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.dot-active, .dot:hover {
+  background-color: #396a9b;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
