@@ -33,7 +33,8 @@ let promise1 = new Promise ((resolve, reject) =>{
 });
 
 
-let promise2 = new Promise ((resolve, reject) =>{  //read the schedule data of m2 s1
+
+let promiseIV1 = new Promise ((resolve, reject) =>{  //read the schedule data of m2 s1
     d3.json('projet/M1.json', data => {
         if(data != null){ resolve(data) }else{ reject(data) }
     });
@@ -42,11 +43,27 @@ let promise2 = new Promise ((resolve, reject) =>{  //read the schedule data of m
 });
 
 
-let promise3 = new Promise ((resolve, reject) =>{ 
+let promiseIV2 = new Promise ((resolve, reject) =>{ 
     d3.json('projet/M2.json', data => {
         if(data != null){ resolve(data) }else{ reject(data) }
     })
 });
+
+let promiseSII1 = new Promise ((resolve, reject) =>{  //read the schedule data of m2 s1
+    d3.json('projet/specialities/M1_SII.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    });
+
+    
+});
+
+
+let promiseSII2 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M2_SII.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
 
 var locations = []
 var profs = []
@@ -76,7 +93,7 @@ centroids = [] //to store the locations of paths for the zoom navigation
 
 
 //fetch the data: usthb geojson, M1 and M2 respectively
-Promise.all([promise1, promise2, promise3]).then(function(data){
+Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(function(data){
 
     function getLocations(buttonData, unpopulate){
 
@@ -407,7 +424,8 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     
                 }else{ //Select a location
 
-                    selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
+                    if(loc != "ground")  selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
+                   
                     console.log(loc, loc2)
                     console.log("clickedList before adding: ", clickedList)
 
@@ -456,7 +474,6 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                         }else{
                             //console.log(loc, typeof(loc))
                             //console.log("the locations2", filtered_locations)
-                            d3.select("#_" + i).attr("pointer-events","none")
                             return skyBlue
                         }
                 }
@@ -475,11 +492,22 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     json = data[0]
     //m1
-    m1 = data[1]
-    m2 = data[2]
 
-    m1_profs = data[1]
-    m2_profs = data[2]
+    var selectedSpeciality = d3.select("#specialities").node().value;
+    if(selectedSpeciality =='IV'){
+        m1 = data[1]
+        m2 = data[2]
+    
+        m1_profs = data[1]
+        m2_profs = data[2]
+    }else{
+        m1 = data[3]
+        m2 = data[4]
+    
+        m1_profs = data[3]
+        m2_profs = data[4]
+    }
+
 
 
 
@@ -765,7 +793,6 @@ function updatePaths(svg){
     .style('stroke-width', '0.2px')
     .attr("stroke", "#3E768C")
     .attr('transform', 'translate(0,0)')
-    .attr("pointer-events","none")
     .attr("fill" ,d =>{
 
         
