@@ -452,6 +452,25 @@ body{
   gap: 1rem;
 }
 
+.shape {
+  width: 15px;
+  height: 4px;
+  background-color:#121a3e;
+}
+
+.shapeAnimation {
+  animation-name: pulse;
+  animation-duration: 0.15s;
+  animation-iteration-count: 2;
+  animation-direction:alternate;
+}
+
+
+@keyframes pulse {
+  0% { transform: translate(0px, 50%);     }
+  100%   { transform: translate(180px, 90%);  }
+}
+
 .home_content .text{
   font-size: 25px;
   font-weight: 600;
@@ -460,12 +479,8 @@ body{
 .home_content p{
   margin-bottom:15px;
 }
-ytd-guide-collapsible-section-entry-renderer.ytd-guide-section-renderer:not(:first-child) {
-  border-top: 10px solid red;
-  margin-top: 12px;
-  padding-top: 12px;
-}
-  
+
+
 .about {
   width: 20rem;
 }

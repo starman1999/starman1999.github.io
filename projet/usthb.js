@@ -165,9 +165,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                     dayLocations.push([cour.cours.loc, cour.cours.prof, cour.cours.Subject, cour.cours.Time])
 
                     for(z of clickedList){
-                        console.log("clickedList is: ", clickedList)
 
-                        console.log("removing all selections...", z)
                         updateInfos(z[0], z[1], false)
                     }
 
@@ -304,8 +302,8 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
                 //populate data here
                 
                 getLocations(buttonData, false)
-                console.log("filtered_locations: ",filtered_locations)
-                console.log("profs: ", filtered_profs)
+               // console.log("filtered_locations: ",filtered_locations)
+                //console.log("profs: ", filtered_profs)
 
                 if(this.id == "m1" || this.id == "m2"){
                     highlightPlaces(filtered_locations)
@@ -363,38 +361,67 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
     green = "#01FA4A"
     skyBlue = "#B3E0F2"
     clickedList = []
+
+    groungou  = ['152', 'tp152', '45', '45']
+    p = '152'
+    groungou2 = groungou
+    console.log(groungou, groungou2)
+    groungou.splice(0, 1, '152')
+    console.log("grounou:",groungou)
+    groungou2.splice(groungou2.indexOf('152'),1)
+    console.log("grounou2:",groungou2)
+
     function highlightPlaces(filtered_locations){
     
         centroids = [] //reinitialize the centroids array each time we highlite new places to navigate to
 
         svg = d3.select("#svg")
        
-
         loc_paths = svg.selectAll("path")
             .data(json.features)  //usthb geojson DATA  
             .attr("d", path)
-            .on("click", (d, i, nodes) => {
-                console.log("احح")
-                selectedPath = d3.select(nodes[i])
+            .on("click", function(d, i) {
+
+                selectedPath = d3.select(this)
+
+                d3.select("#shapeAnimation").classed("shapeAnimation", true)
+              
+
                 loc = (d['properties'].name).toString()
                 loc2 = d['properties'].name2
                 if(d['properties'].name2 != undefined) loc2 = (d['properties'].name2).toString()
                 
 
-                if(clickedList.some( t => t.includes (loc)) && clickedList.some(t => t.includes(loc2)) ){ //unselect a location
+                if(clickedList.includes(loc) && clickedList.includes(loc2)  ){ //unselect a location
+                    
+                    console.log( loc, loc2)
+                    console.log("clickedList before removing is : ", clickedList)
+
+
                     selectedPath.classed("selected-path", false)
                     updateInfos(loc, loc2, false)
-                    clickedList.splice(clickedList.indexOf([loc, loc2]), 1)
+                    clickedList.splice(clickedList.indexOf(loc), 1);
+                    clickedList.splice(clickedList.indexOf(loc2), 1);
+
+                    console.log("clickedList is now:", clickedList)
                     
                 }else{ //Select a location
 
                     selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
-                    console.log("hh1:", loc)
+                    console.log(loc, loc2)
+                    console.log("clickedList before adding: ", clickedList)
+
                     updateInfos(loc, loc2, true)
-                    clickedList.push([loc,  loc2])
-                    console.log(clickedList)
+                    clickedList.push(loc)
+                    clickedList.push(loc2)
+                    console.log("clickedList is now:", "first:",clickedList)
+
                 }
-          
+                
+                setTimeout( ()=>{
+                    d3.select("#shapeAnimation").classed("shapeAnimation", false)
+
+                }, 300)
             })
             .attr("id", function(d,i){ return "_" + i; } )
             .attr("fill" , (d,i)=>{
@@ -484,7 +511,7 @@ Promise.all([promise1, promise2, promise3]).then(function(data){
 
     //select and update informations when user clicks on path
 
-
+    
 
 
 
@@ -687,24 +714,20 @@ function updateInfos (locationName1, locationName2, clickState){
                 dot_div.append("span").attr("class", "dot").on("click", currentSlide(1))
     
                 d3.select("#indication").style("visibility", "hidden")
-    
-                showSlides(1);
+       
             }   
         }
     }else{
         //remove the informations when the user unselect a certain button
-
         for(i of filtered_locations){
             if(i.includes(loc) || i.includes(loc_floor2)){
-           
                 let divs = d3.select(".slideshow-container")
                 
                 //this is to create a unique ID for the Div, so we can dynamically remove it
                 horaire = i[3]
                 horaire = horaire.replace(/\s+/g, '');
                 horaire = horaire.replace(/:/g, '');
-                console.log(horaire)
-                console.log("#_"+i[0]+i[1]+horaire)
+
 
 
 
@@ -719,6 +742,7 @@ function updateInfos (locationName1, locationName2, clickState){
 
                 selectedPath = d3.select("#_"+loc)
                 selectedPath.classed("selected-path", false)
+                
             }
         }
     }
