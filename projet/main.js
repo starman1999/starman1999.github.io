@@ -64,6 +64,18 @@ let promiseSII2 = new Promise ((resolve, reject) =>{
     })
 });
 
+let promiseRSD1 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M1_RSD.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+let promiseRSD2 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M2_RSD.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
 
 var locations = []
 var profs = []
@@ -93,7 +105,11 @@ centroids = [] //to store the locations of paths for the zoom navigation
 
 
 //fetch the data: usthb geojson, M1 and M2 respectively
-Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(function(data){
+Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promiseRSD1, promiseRSD2]).then(function(data){
+
+    green = "#01FA4A"
+    skyBlue = "#B3E0F2"
+    clickedList = []
 
     function getLocations(buttonData, unpopulate){
 
@@ -261,7 +277,36 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
             }
         }
     }
+
+    m1Button = document.getElementById('m1');
+    m2Button = document.getElementById('m2');
+
+    function resetSelections(){
+
+        //recolour all selected paths and reset them
+        d3.selectAll(".selectedpaths").classed("selected-path", false)
+        for(i of clickedList){
+            updateInfos(i, i, false)
+        }
+   
         
+        if(m1Button.className == 'btn-selected' || m2Button.className == 'btn-selected'){
+            zoomOut()
+            for (const item of Mbuttons) {
+                getLocations(item, true)
+              }
+            
+            highlightPlaces(filtered_locations)
+            m1Button.className = 'btn'
+            m2Button.className = 'btn'
+            samediButton.className = 'btn'
+            dimancheButton.className  = 'btn'
+            lundiButton.className = 'btn'
+            mardiButton.className  = 'btn'
+            mercrediButton.className  = 'btn'
+            jeudiButton.className  = 'btn'
+        } 
+    }
     function selectButton() {
 
         samediButton = document.getElementById('Sam');
@@ -275,8 +320,7 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
 
         if(this.id == 'm1' || this.id == 'm2' || this.id == 'm1_profs' || this.id == 'm2_profs'){
 
-            m1Button = document.getElementById('m1');
-            m2Button = document.getElementById('m2');
+           
 
             m2_prof = document.getElementById('m2_profs');
             m1_prof = document.getElementById('m1_profs');
@@ -286,17 +330,9 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
 
 
             //if the user clicks the m1 or m2 buttons, then click the ones for the teachers, we reset the students' buttons
-            if(this.id == 'm1_profs' || this.id == 'm2_profs'){
-                if(m1Button.className == 'btn-selected' || m2Button.className == 'btn-selected'){
-                    zoomOut()
-                    for (const item of Mbuttons) {
-                        getLocations(item, true)
-                      }
-                    
-                    highlightPlaces(filtered_locations)
-                    m1Button.className = 'btn'
-                    m2Button.className = 'btn'
-                } 
+            if(this.id == 'm1_profs' || this.id == 'm2_profs' ){
+
+               resetSelections()
             }
    
 
@@ -375,18 +411,6 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
 
     }
 
-    green = "#01FA4A"
-    skyBlue = "#B3E0F2"
-    clickedList = []
-
-    groungou  = ['152', 'tp152', '45', '45']
-    p = '152'
-    groungou2 = groungou
-    console.log(groungou, groungou2)
-    groungou.splice(0, 1, '152')
-    console.log("grounou:",groungou)
-    groungou2.splice(groungou2.indexOf('152'),1)
-    console.log("grounou2:",groungou2)
 
     function highlightPlaces(filtered_locations){
     
@@ -400,6 +424,7 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
             .on("click", function(d, i) {
 
                 selectedPath = d3.select(this)
+                selectedPath.attr("class", "selectedpaths")
 
                 d3.select("#shapeAnimation").classed("shapeAnimation", true)
               
@@ -421,10 +446,11 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
                     clickedList.splice(clickedList.indexOf(loc2), 1);
 
                     console.log("clickedList is now:", clickedList)
+                    plusSlides(-1)
                     
                 }else{ //Select a location
 
-                    if(loc != "ground")  selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
+                    if(loc != "ground") selectedPath.classed("selected-path", true).attr("id","_" + d["properties"].name)
                    
                     console.log(loc, loc2)
                     console.log("clickedList before adding: ", clickedList)
@@ -433,7 +459,7 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
                     clickedList.push(loc)
                     clickedList.push(loc2)
                     console.log("clickedList is now:", "first:",clickedList)
-
+                    plusSlides(1)
                 }
                 
                 setTimeout( ()=>{
@@ -491,30 +517,50 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
 
 
     json = data[0]
-    //m1
+    d3.select("select").on("change", function(d){
+        selectedSpeciality = d3.select("#specialities").node().value;
+        console.log( selectedSpeciality );
 
-    var selectedSpeciality = d3.select("#specialities").node().value;
-    if(selectedSpeciality =='IV'){
-        m1 = data[1]
-        m2 = data[2]
+        if(selectedSpeciality =='IV'){
+            resetSelections()
+            m1 = data[1]
+            m2 = data[2]
+        
+            m1_profs = data[1]
+            m2_profs = data[2]
+            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+        }
+        if(selectedSpeciality=='SII'){
+            resetSelections()
+            m1 = data[3]
+            m2 = data[4]
+        
+            m1_profs = data[3]
+            m2_profs = data[4]
+            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+        }
+        if(selectedSpeciality=='RSD'){
+            resetSelections()
+            m1 = data[5]
+            m2 = data[6]
+        
+            m1_profs = data[5]
+            m2_profs = data[6]
+            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+        }
+
     
-        m1_profs = data[1]
-        m2_profs = data[2]
-    }else{
-        m1 = data[3]
-        m2 = data[4]
     
-        m1_profs = data[3]
-        m2_profs = data[4]
-    }
+
+    })
 
 
 
 
-    d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+    
 
     //profs drowpdown selection
-    d3.select("select")
+    d3.select("#dropdown")
     .on("change",function(d){
         prof_locs = []
         var selected = d3.select("#dropdown").node().value;
@@ -643,6 +689,7 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2]).then(f
 
     function navigate(direction){
         
+        console.log("centroids:", centroids)
         if(direction == "forward") {
             centroidsIndex++; 
             if(centroidsIndex > centroids.length-1) centroidsIndex = 0 
