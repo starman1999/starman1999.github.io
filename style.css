@@ -575,7 +575,7 @@ q {font-style: italic;}
 /* MEDIA QUERIES*/
 
 
-@media (min-width: 500px) and (max-width: 900px) {
+@media only screen and (min-width: 500px) and (max-width: 900px) {
   .section {
     margin-top: 4rem;
     display: block;
