@@ -571,3 +571,18 @@ q {font-style: italic;}
 
 /* Add a blue color to the author */
 .colored-text {color: rgb(68, 113, 197);}
+
+/* MEDIA QUERIES*/
+
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .section {
+    margin-top: 4rem;
+    display: block;
+  }
+
+  .map{
+    margin-left: 21rem;
+    margin-top: 2rem;
+  }
+}
