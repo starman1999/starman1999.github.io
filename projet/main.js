@@ -661,8 +661,6 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promise
         .transition()
         .duration(2000)
         .call(() => zoomTo([305.07681305610026, 165.2429846466185], 1)); //reset fnctions didn't work, so we zoomTo A specefic point instead
-
-        console.log(centroids)
     }
 
 
