@@ -122,7 +122,7 @@
             "Time": "13:00 - 14:30",
             "Subject": "SYST",
             "loc": "TP127",
-            "prof": ""
+            "prof": "no name"
           },
           "G2": {
             "Time": "13:00 - 14:30",
@@ -228,7 +228,7 @@
             "Time": "13:00 - 14:30",
             "Subject": "ANGLAIS",
             "loc": "LABO LANG",
-            "prof": ""
+            "prof": "no name"
           },
           "G2": {
             "Time": "13:00 - 14:30",
