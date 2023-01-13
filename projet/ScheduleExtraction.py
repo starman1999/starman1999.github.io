@@ -7,7 +7,7 @@ import re
 
 
 def getDayData(df, index):
-
+    print(index)
     data = (df.iloc[index, :]).values
     time = df.columns.values[1:]
 
@@ -36,6 +36,7 @@ def getDayData(df, index):
                 }
 
                 result.append(dayData)
+                print(result)
             else:
 
                 dctG1 = {}
@@ -83,6 +84,8 @@ def getDayData(df, index):
                     dayData["groups"].update(dctG2)
 
                 result.append(dayData)
+                print(result)
+
 
     return result
 
@@ -107,7 +110,8 @@ def csvToJson(df, outputJson):
     }
 
 
-    days = (df.iloc[:, 0]).values
+    days =['Sam' ,'Dim', 'Lun', 'Mar', 'Mer', 'Jeu']
+    print(days)
 
 
     for index, day in enumerate(days):
@@ -123,9 +127,9 @@ def csvToJson(df, outputJson):
 
 def run():
     # choose input and output files pdfToCsv("MIV.pdf", "1")
-    df = pdftoDataFrame("MIV.pdf", "2")
+    df = pdftoDataFrame("specialities/M1-M2-BIOINFO-1.pdf", "2")
     # pass the dataframe and the output file csvTojson(df, "data.json")
-    csvToJson(df, "M1.json")
+    csvToJson(df,"M2_BIOINFO.json")
 
     print("Done")
 

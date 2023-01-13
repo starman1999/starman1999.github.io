@@ -77,6 +77,48 @@ let promiseRSD2 = new Promise ((resolve, reject) =>{
 });
 
 
+let promiseBIOINFO1 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M1_BIOINFO.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+let promiseBIOINFO2 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M2_BIOINFO.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+
+let promiseIL1 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M1_IL.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+let promiseIL2 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M2_IL.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+
+
+let promiseBDATA1 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M1_BIGDATA.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+let promiseBDATA2 = new Promise ((resolve, reject) =>{ 
+    d3.json('projet/specialities/M2_BIGDATA.json', data => {
+        if(data != null){ resolve(data) }else{ reject(data) }
+    })
+});
+
+
+
+
 var locations = []
 var profs = []
 var unique_profs = []
@@ -105,7 +147,8 @@ centroids = [] //to store the locations of paths for the zoom navigation
 
 
 //fetch the data: usthb geojson, M1 and M2 respectively
-Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promiseRSD1, promiseRSD2]).then(function(data){
+Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promiseRSD1, promiseRSD2, promiseIL1, promiseIL2, promiseBIOINFO1, 
+promiseBIOINFO2, promiseBDATA1, promiseBDATA2]).then(function(data){
 
     green = "#01FA4A"
     skyBlue = "#B3E0F2"
@@ -291,9 +334,9 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promise
    
         
         if(m1Button.className == 'btn-selected' || m2Button.className == 'btn-selected'){
-            zoomOut()
+            zoomTo([305.07681305610026, 165.2429846466185], 1)
             for (const item of Mbuttons) {
-                getLocations(item, true)
+                getLocations(item, true) //unpopulate data of the 02 selected buttons
               }
             
             highlightPlaces(filtered_locations)
@@ -495,7 +538,7 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promise
                
                             
                             d3.select("#_" + i).attr("pointer-events","auto")
-                            
+                            console.log(filtered_locations)
                             return green
                         }else{
                             //console.log(loc, typeof(loc))
@@ -510,47 +553,38 @@ Promise.all([promise1, promiseIV1, promiseIV2, promiseSII1, promiseSII2, promise
 
 
 
-
-
-
-
-
-
     json = data[0]
+
+    /* this function loads the files based on what the user selects in the dropdown */
+    //important: the name in the dropdown should be the same as in the json file
     d3.select("select").on("change", function(d){
         selectedSpeciality = d3.select("#specialities").node().value;
-        console.log( selectedSpeciality );
-
-        if(selectedSpeciality =='IV'){
-            resetSelections()
-            m1 = data[1]
-            m2 = data[2]
+     
+       
+        for(year of data){
+            for(let semester in year){
+                
+                if( (year[semester]['specialty'] != undefined ) ){
+                    if(year[0]['specialty'] == selectedSpeciality){
+                        resetSelections()
+                        if(year[semester]['year'] == '1'){
+                            m1 = year //load the corresponding year data
+                            m1_profs = year
+                        }else{
+                            m2 = year
+                            m2_profs = year
         
-            m1_profs = data[1]
-            m2_profs = data[2]
-            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
-        }
-        if(selectedSpeciality=='SII'){
-            resetSelections()
-            m1 = data[3]
-            m2 = data[4]
+                        }
+                        d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
+                    }
+                }
+                
+               
+            }
+          }
+            
+           
         
-            m1_profs = data[3]
-            m2_profs = data[4]
-            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
-        }
-        if(selectedSpeciality=='RSD'){
-            resetSelections()
-            m1 = data[5]
-            m2 = data[6]
-        
-            m1_profs = data[5]
-            m2_profs = data[6]
-            d3.selectAll("#m1, #m2, #m1_profs, #m2_profs, #Sam, #Dim, #Lun, #Mar, #Mer, #Jeu").on("click", selectButton)
-        }
-
-    
-    
 
     })
 
@@ -761,21 +795,29 @@ function updateInfos (locationName1, locationName2, clickState){
     if(locationName1 != undefined) loc = locationName1
     if(locationName2 != undefined) loc_floor2 = locationName2
 
+    var dot_div = d3.select(".dot-container")
 
     if(clickState == true){
         for(i of filtered_locations){
             if(i.includes(loc) || i.includes(loc_floor2)){
 
                 //this is to create a unique ID for the Div, so we can dynamically remove it
-                horaire = i[3]
+                let horaire = i[3]
+                let location = i[0]
+                let prof = i[1]
+
                 horaire = horaire.replace(/\s+/g, '');
                 horaire = horaire.replace(/:/g, '');
+                location = location.replace(/./g, '')
+                prof = prof.replace(/\s+/g, '');
+
                 
                 let divs = d3.select(".slideshow-container")
                 .append("div")
-                .attr("id", "_"+i[0]+i[1]+horaire)
+                .attr("id", "_"+location+prof+horaire)
                 .attr("class", "mySlides")
     
+                console.log("_"+location+prof+horaire)
                 divs.append("p").attr("id", "salle").text("Salle: "+ i[0])
     
                 divs.append("p").attr("id", "enseignant").text("Enseignant: "+ i[1])
@@ -787,10 +829,10 @@ function updateInfos (locationName1, locationName2, clickState){
                 divs.append("p").attr("id", "groupe").text("Groupe: "+ i[4])
                 divs.append("p").attr("id", "dat").text("jour: "+ i[5]).attr("class","colored-text")
     
-                var dot_div = d3.select(".dot-container")
                 dot_div.append("span").attr("class", "dot").on("click", currentSlide(1))
     
                 d3.select("#indication").style("visibility", "hidden")
+
        
             }   
         }
@@ -801,16 +843,20 @@ function updateInfos (locationName1, locationName2, clickState){
                 let divs = d3.select(".slideshow-container")
                 
                 //this is to create a unique ID for the Div, so we can dynamically remove it
-                horaire = i[3]
+                let horaire = i[3]
+                let location = i[0]
+                let prof = i[1]
                 horaire = horaire.replace(/\s+/g, '');
                 horaire = horaire.replace(/:/g, '');
+                location = location.replace(/./g, '')
+                prof = prof.replace(/\s+/g, '');
 
 
 
 
-                toRemove = divs.select("#_"+i[0]+i[1]+ horaire)
+                toRemove = divs.select("#_"+location+prof+ horaire)
+                console.log("to remove:", location)
 
-                var dot_div = d3.select(".dot-container")
                 dot_div.select("span").remove()
 
                 //plusSlides(1)
