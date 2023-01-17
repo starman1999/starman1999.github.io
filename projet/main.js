@@ -214,7 +214,7 @@ promiseBIOINFO2, promiseBDATA1, promiseBDATA2]).then(function(data){
 
                 d3.select("#dropdown")
                 .append("option")
-                .attr("id", filtered_locations[i][1])   
+                .attr("id", "_" + filtered_locations[i][1])   
                 .text(filtered_locations[i][1])
             }
             
@@ -420,6 +420,8 @@ promiseBIOINFO2, promiseBDATA1, promiseBDATA2]).then(function(data){
                 console.log("filtered_locations: ",filtered_locations)
                 console.log("profs:", filtered_profs)
                 }
+
+         
             }
 
 
@@ -921,7 +923,7 @@ function updatePaths(svg){
             .style('cursor', "pointer")
 
             if(d['properties'].name != ""){
-                svg.select("text") //print the place name on the screen when hovering
+                d3.select("#locationName") //print the place name on the screen when hovering
                 .text(d['properties'].name);
             }else{
                 svg.select("text") //print the place name on the screen when hovering
@@ -935,6 +937,9 @@ function updatePaths(svg){
     })
 
     .on("mouseout", function(d){
+
+            d3.select("#locationName") //print the place name on the screen when hovering
+            .text("");
 
             if(d['properties'].name != "ground"){
             d3.select(this)

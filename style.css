@@ -254,6 +254,7 @@
     flex-wrap: wrap;
     padding-top: 0.5rem;
     padding-left: 15%;
+    overflow: scroll;
   }
   
   select:hover {
@@ -477,6 +478,13 @@ body{
 }
 .home_content p{
   margin-bottom:15px;
+}
+
+#locationName {
+  margin-top: 2rem;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(92, 138, 202)
 }
 
 
